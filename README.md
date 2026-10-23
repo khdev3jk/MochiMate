@@ -6,7 +6,13 @@
 
 **A tiny anime coworker for your Mac.** MochiMate puts a chibi character on your Desktop who reminds you to drink water, stand up and rest your eyes. When one is due the character runs over to you, the whole screen takes over with an effect, and a line in your language is shown and spoken. It is much harder to swipe away than a notification banner, and funnier.
 
-[Watch it on screen](media/demo-excel-raw.mp4): a raw, unedited screen recording of the real app over an open Excel sheet (105 s).
+<p align="center">
+  <a href="https://mochimate.khuongdv.link/demo-excel-raw.mp4">
+    <img src="media/screenshots/desktop-excel.jpg" alt="Watch the screen recording" width="560"><br>
+    <b>▶ Watch it on screen</b>
+  </a><br>
+  <sub>A raw, unedited screen recording of the real app over an open Excel sheet (105 s, no sound).</sub>
+</p>
 
 The app lives in the menu bar only (a mochi-face icon); it has no Dock icon.
 
