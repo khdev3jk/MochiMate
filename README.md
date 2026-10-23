@@ -1,8 +1,34 @@
 # MochiMate
 
-An anime chibi companion for macOS that lives on your Desktop and keeps office workers healthy: it reminds you to drink water, get up and move, and rest your eyes, with a funny line in your language each time.
+<p align="center">
+  <img src="media/screenshots/reminder-water.jpg" alt="MochiMate's water reminder taking over the screen while Rin stands at the bottom" width="860">
+</p>
+
+**A tiny anime coworker for your Mac.** MochiMate puts a chibi character on your Desktop who reminds you to drink water, stand up and rest your eyes. When one is due the character runs over to you, the whole screen takes over with an effect, and a line in your language is shown and spoken. It is much harder to swipe away than a notification banner, and funnier.
+
+[Watch it on screen](media/demo-excel-raw.mp4): a raw, unedited screen recording of the real app over an open Excel sheet (105 s).
 
 The app lives in the menu bar only (a mochi-face icon); it has no Dock icon.
+
+## What it looks like
+
+A reminder takes over the screen, in one of three looks per kind (this is the real app on top of Excel):
+
+| Drink water | Stand up and move | Rest your eyes |
+| :---: | :---: | :---: |
+| <img src="media/screenshots/reminder-water.jpg" width="300"> | <img src="media/screenshots/reminder-move.jpg" width="300"> | <img src="media/screenshots/reminder-eyes.jpg" width="300"> |
+
+Between reminders the character just lives on your Desktop, and now and then casts one of its two skills:
+
+| On the Desktop | Code Rain (Rin) | Refactor Beam (Rin) |
+| :---: | :---: | :---: |
+| <img src="media/screenshots/desktop-excel.jpg" width="300"> | <img src="media/screenshots/skill-code-rain.jpg" width="300"> | <img src="media/screenshots/skill-refactor-beam.jpg" width="300"> |
+
+Everything is set in the menu and in Settings (here in English; Vietnamese and Japanese are built in):
+
+| Menu bar | Characters | Reminders | Schedule | Behavior |
+| :---: | :---: | :---: | :---: | :---: |
+| <img src="media/screenshots/menu.png" width="170"> | <img src="media/screenshots/settings-character.png" width="170"> | <img src="media/screenshots/settings-reminders.png" width="170"> | <img src="media/screenshots/settings-schedule.png" width="170"> | <img src="media/screenshots/settings-behavior.png" width="170"> |
 
 ## Features
 
@@ -13,22 +39,28 @@ The app lives in the menu bar only (a mochi-face icon); it has no Dock icon.
   - Designer: Leo, Mei
   - Marketing & Content Creator: Ken, Yui
   - Project Manager & Business Analyst: Sora, Aki
-- **Lives on the Desktop:** walks and runs around, across every screen; works on a laptop, gets bored, yawns, falls asleep. Click it, drag it, poke it too often and it gets grumpy.
-- **2 skills per character (20 in all):** screen-filling effects (rocket launch, code rain, payday rain, approval stamp, aurora, radar…), 2–3× the size of the character, with a line of dialogue. Cast now and then on their own, or from the **Skills** submenu in the menu bar and the right-click menu.
+- **Health reminders:** water (every 45 min), move (60 min), eye rest (20 min, the 20-20-20 rule) by default, each with its own interval. When one is due the character runs to the bottom of the screen near your cursor, the screen fills with a full-screen effect (three looks per reminder, picked at random), the character acts it out (drinks, stretches, does eye exercises) and says a line. Click the character when you've done it; right-click to snooze 10/30 minutes or skip.
+- **Spoken reminders:** most reminder lines have pre-recorded voices in English, Japanese and Vietnamese (a male and a female voice each), played at the volume set in Settings.
+- **Lives on the Desktop:** walks and runs around, across every screen; works on a laptop, gets bored, yawns, falls asleep, and complains now and then about work and life. Click it, drag it, poke it too often and it gets grumpy.
+- **2 skills per character (20 in all):** effects around the character (rocket launch, code rain, payday rain, approval stamp, aurora, radar…) with a line of dialogue. Cast now and then on their own, or from the **Skills** submenu in the menu bar and the right-click menu.
 - **Plays around (opt-in):** perches on top of the window you're using and teases the app by name, and kicks Desktop icons around (needs permission to control Finder; off by default).
-- **Health reminders:** water (every 45 min), move (60 min), eye rest (20 min, the 20-20-20 rule) by default, each with its own interval. When one is due the character runs to the bottom of the screen near your cursor, acts it out (drinks, stretches, does eye exercises) and says a line. Click it when you've done it; right-click to snooze 10/30 minutes or skip.
 - **Schedule:** reminders only during work hours (days and times), none during quiet hours (lunch break by default), and a pause for 15 min to the rest of the day. Countdowns stand still outside those times, and being away from the Mac for 5+ minutes counts as a break.
+- **Launch at login:** one switch in Settings.
 - **Lines that don't repeat:** recently said lines are skipped until the rest have been used, across launches.
 - **3 languages:** Vietnamese, English and Japanese, for the settings, menus and dialogue.
 - **Updates from GitHub Releases:** new app versions in one click, plus dialogue/audio packs that install automatically without an app release.
 
 It stays light: one 30 fps timer, layer-based rendering, and reminders checked every 10 seconds. It never reads your data: the only things it looks at are where the frontmost window is and that app's name (for the window antics), and the Desktop icon positions (only with icon kicking on).
 
+## Install
+
+Requirements: macOS 13 or later. Build it from source (see [Build](#build)) with `make run`, or `make dmg` for a disk image to drag into Applications. The app is ad-hoc signed by default, so the first launch may need right-click, **Open**.
+
 ## Usage
 
 Everything is in the menu-bar menu: the time of each next reminder, **Remind me now**, **Pause reminders**, the character picker, **Show the character on screen**, **Settings…** and updates. Hiding the character keeps the reminders going: it comes out for each one and leaves again.
 
-Settings has five tabs: Character (pick one, language, voice volume), Reminders (on/off, interval, try one now, pause), Schedule (work hours and days, quiet hours), Behavior (chatter, window antics, icon kicking) and Updates.
+Settings has five tabs: Character (pick one, language, voice volume), Reminders (on/off, interval, try one now, pause), Schedule (work hours and days, quiet hours), Behavior (launch at login, chatter, window antics, icon kicking) and Updates.
 
 ## Build
 
