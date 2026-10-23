@@ -1,0 +1,1459 @@
+{
+  "version": 3,
+  "profiles": {
+    "kai": {
+      "vi": {
+        "name": "Khải",
+        "bio": "Dev backend sống bằng cà phê và niềm tin 'chạy trên máy em mà'. Hay ngủ gật lúc chờ build."
+      },
+      "en": {
+        "name": "Ethan",
+        "bio": "Backend dev powered by coffee and 'works on my machine'. Naps whenever a build is running."
+      },
+      "ja": {
+        "name": "カイ",
+        "bio": "コーヒーと「僕の環境では動く」で生きるバックエンドエンジニア。ビルド待ちでいつも寝落ち。"
+      }
+    },
+    "rin": {
+      "vi": {
+        "name": "Linh",
+        "bio": "Dev frontend miệng sắc như code review. Ghét bug, ghét họp, nhưng lo cho bạn ra mặt."
+      },
+      "en": {
+        "name": "Emma",
+        "bio": "Frontend dev with a tongue as sharp as her code reviews. Hates bugs and meetings, secretly cares about you."
+      },
+      "ja": {
+        "name": "リン",
+        "bio": "コードレビュー並みに口が鋭いフロントエンドエンジニア。バグと会議が嫌い。でも実はあなたが心配。"
+      }
+    },
+    "taro": {
+      "vi": {
+        "name": "Tuấn",
+        "bio": "Nhân viên văn phòng chính hiệu: Excel, deadline, tăng ca và ngóng ngày lương về."
+      },
+      "en": {
+        "name": "Tom",
+        "bio": "Salaryman to the bone: spreadsheets, deadlines, overtime and counting the days to payday."
+      },
+      "ja": {
+        "name": "タロウ",
+        "bio": "根っからのサラリーマン。エクセル、締め切り、残業、そして給料日を待つ日々。"
+      }
+    },
+    "hana": {
+      "vi": {
+        "name": "Hoa",
+        "bio": "Cô nàng văn phòng vui vẻ, biết hết tin hot công ty và ngăn kéo lúc nào cũng có snack."
+      },
+      "en": {
+        "name": "Hannah",
+        "bio": "Cheerful office worker who knows all the gossip and always has snacks in her drawer."
+      },
+      "ja": {
+        "name": "ハナ",
+        "bio": "社内のうわさは全部知ってる明るいOL。引き出しにはいつもおやつ。"
+      }
+    },
+    "leo": {
+      "vi": {
+        "name": "Lâm",
+        "bio": "Designer nghệ sĩ đội beret, đau khổ mỗi khi khách bảo 'cho logo to thêm chút nữa'."
+      },
+      "en": {
+        "name": "Leo",
+        "bio": "Dramatic designer in a beret who suffers every time a client says 'make the logo bigger'."
+      },
+      "ja": {
+        "name": "レオ",
+        "bio": "ベレー帽の芸術家肌デザイナー。「ロゴもっと大きく」と言われるたびに傷つく。"
+      }
+    },
+    "mei": {
+      "vi": {
+        "name": "Mai",
+        "bio": "Designer UI mê màu pastel và Figma, lệch 1px là mất ngủ."
+      },
+      "en": {
+        "name": "May",
+        "bio": "UI designer who loves pastels and Figma, and can't sleep if anything is 1px off."
+      },
+      "ja": {
+        "name": "メイ",
+        "bio": "パステルと Figma が大好きなUIデザイナー。1pxズレてると眠れない。"
+      }
+    },
+    "ken": {
+      "vi": {
+        "name": "Kiên",
+        "bio": "Marketer năng lượng vô tận, cái gì cũng phải viral, nói chuyện bằng KPI."
+      },
+      "en": {
+        "name": "Ken",
+        "bio": "Marketer with endless energy. Everything has to go viral and he speaks fluent KPI."
+      },
+      "ja": {
+        "name": "ケン",
+        "bio": "エネルギー無限のマーケター。何でもバズらせたい。話す言葉はKPI。"
+      }
+    },
+    "yui": {
+      "vi": {
+        "name": "Yến",
+        "bio": "Content creator luôn săn góc sống ảo, sống theo lịch đăng bài và tỉ lệ tương tác."
+      },
+      "en": {
+        "name": "Lucy",
+        "bio": "Content creator always hunting for the perfect angle. Lives by the posting calendar and engagement rate."
+      },
+      "ja": {
+        "name": "ユイ",
+        "bio": "いつも映える角度を探すコンテンツクリエイター。投稿カレンダーとエンゲージメント率が命。"
+      }
+    },
+    "sora": {
+      "vi": {
+        "name": "Sơn",
+        "bio": "PM điềm tĩnh, câu cửa miệng 'mình sync nhanh 5 phút nhé'. Sợ nhất là scope creep."
+      },
+      "en": {
+        "name": "Sam",
+        "bio": "Calm PM whose catchphrase is 'quick 5-minute sync?'. Fears scope creep above all."
+      },
+      "ja": {
+        "name": "ソラ",
+        "bio": "落ち着いたPM。口癖は「5分だけ軽く同期しよう」。スコープクリープが一番怖い。"
+      }
+    },
+    "aki": {
+      "vi": {
+        "name": "Thu",
+        "bio": "BA tỉ mỉ, cái gì cũng phải có acceptance criteria, kể cả việc uống nước."
+      },
+      "en": {
+        "name": "Amy",
+        "bio": "Meticulous BA. Everything needs acceptance criteria, even drinking water."
+      },
+      "ja": {
+        "name": "アキ",
+        "bio": "几帳面なBA。何にでも受け入れ基準が必要。水を飲むことにさえ。"
+      }
+    }
+  },
+  "characters": {
+    "kai": {
+      "vi": {
+        "hello": [
+          "Ơ chào... mình vừa ngủ dậy, à nhầm, vừa deploy xong."
+        ],
+        "water": [
+          "{minutes} phút chưa uống nước rồi. Cơ thể bạn đang chạy chế độ low battery đó.",
+          "Cà phê không tính là nước nha. Mình biết vì mình thử rồi.",
+          "Uống nước đi, kẻo não bị memory leak bây giờ."
+        ],
+        "move": [
+          "Ngồi lâu quá là cột sống throw exception đó. Đứng dậy!",
+          "Build còn lâu mới xong, đi một vòng đi bạn.",
+          "Mình lười vậy mà còn vươn vai nè. Làm theo đi."
+        ],
+        "eyes": [
+          {
+            "text": "Nhìn ra xa 20 giây đi. Bug không chạy mất đâu, tiếc là vậy.",
+            "effect": "eye"
+          },
+          "Mắt bạn đỏ như log lỗi production rồi đó. Nghỉ chút.",
+          "Nhắm mắt 20 giây. Mình canh màn hình cho, mình hứa không ngủ... chắc vậy."
+        ],
+        "thanks": [
+          "Ngon. Bạn vừa fix được bug quan trọng nhất: chính bạn.",
+          "Tốt lắm. Commit message: 'healthy: drink water'."
+        ],
+        "click": [
+          "Hửm? Gọi mình à? Đừng bảo là có bug nữa nha.",
+          "Ừ ừ, mình đang làm việc đây. Chỉ là mắt nhắm thôi."
+        ],
+        "chatter": [
+          "Code chạy được thì đừng hỏi tại sao.",
+          "Hôm nay mình sẽ viết test... từ mai."
+        ],
+        "skill1": [
+          "Deploy lên production lúc 5 giờ chiều thứ Sáu. Đừng cản mình!"
+        ],
+        "skill2": [
+          "Bug ơi, ra đây nói chuyện nào. Mình có cái dép đây."
+        ]
+      },
+      "en": {
+        "hello": [
+          "Oh, hi... I just woke up. I mean, just deployed."
+        ],
+        "water": [
+          "{minutes} minutes without water. You're running in low-battery mode.",
+          "Coffee doesn't count as water. I know. I tried.",
+          "Drink some water before your brain starts leaking memory."
+        ],
+        "move": [
+          "Sit any longer and your spine will throw an exception. Up you go!",
+          "The build won't finish anytime soon. Go take a walk.",
+          "If even I'm stretching, you have no excuse."
+        ],
+        "eyes": [
+          {
+            "text": "Look at something far away for 20 seconds. The bug won't run off. Sadly.",
+            "effect": "eye"
+          },
+          "Your eyes are as red as a production error log. Rest them.",
+          "Close your eyes for 20 seconds. I'll watch the screen. I won't fall asleep. Probably."
+        ],
+        "thanks": [
+          "Nice. You just fixed the most important bug: you.",
+          "Great. Commit message: 'healthy: drink water'."
+        ],
+        "click": [
+          "Hm? You called? Please don't say it's another bug.",
+          "Yeah yeah, I'm working. My eyes are just closed."
+        ],
+        "chatter": [
+          "If the code works, don't ask why.",
+          "I'll write tests today... starting tomorrow."
+        ],
+        "skill1": [
+          "Deploying to production at 5 PM on a Friday. Don't stop me!"
+        ],
+        "skill2": [
+          "Bugs, come out. I brought a slipper."
+        ]
+      },
+      "ja": {
+        "hello": [
+          "あ、おはよ…今起きた。いや、今デプロイした。"
+        ],
+        "water": [
+          "{minutes}分も水飲んでないよ。省電力モードになってる。",
+          "コーヒーは水にカウントされないよ。試したから知ってる。",
+          "水飲もう。脳がメモリリークする前に。"
+        ],
+        "move": [
+          "これ以上座ってると背骨が例外を投げるよ。立って！",
+          "ビルドはまだ終わらないし、ちょっと歩いてきなよ。",
+          "僕でさえ伸びしてるんだから、言い訳できないよね。"
+        ],
+        "eyes": [
+          {
+            "text": "20秒だけ遠くを見よう。バグは逃げないよ。残念ながら。",
+            "effect": "eye"
+          },
+          "目が本番のエラーログみたいに真っ赤だよ。休もう。",
+          "20秒目を閉じて。画面は見張っとく。寝ないよ。たぶん。"
+        ],
+        "thanks": [
+          "いいね。一番大事なバグ、つまり君を直したね。",
+          "えらい。コミットメッセージ：「healthy: 水を飲んだ」"
+        ],
+        "click": [
+          "ん？呼んだ？またバグとか言わないでね。",
+          "うんうん、仕事してるよ。目を閉じてるだけ。"
+        ],
+        "chatter": [
+          "動いてるコードには理由を聞かない。",
+          "今日こそテスト書く…明日から。"
+        ],
+        "skill1": [
+          "金曜の夕方5時に本番デプロイ。止めないで！"
+        ],
+        "skill2": [
+          "バグども、出てこい。スリッパ持ってきたぞ。"
+        ]
+      }
+    },
+    "rin": {
+      "vi": {
+        "hello": [
+          "Đến rồi đấy à. Không phải mình chờ đâu nha!"
+        ],
+        "water": [
+          "Uống nước đi. Không phải mình lo đâu, chỉ là bạn mà xỉu thì ai review PR cho mình?",
+          "{minutes} phút không uống nước? Code của bạn còn được refactor nhiều hơn cơ thể bạn đấy.",
+          "Cơ thể bạn đang báo warning. Đừng có ignore như ignore lint."
+        ],
+        "move": [
+          "Đứng dậy! Tư thế ngồi của bạn còn lệch hơn CSS của intern.",
+          "Đi lại chút đi. Mình không muốn đồng nghiệp hoá thành dấu hỏi chấm.",
+          "Vươn vai đi! Đừng để mình phải nói hai lần."
+        ],
+        "eyes": [
+          "Nghỉ mắt đi. Dark mode không cứu được bạn đâu.",
+          "Rời màn hình 20 giây. Pixel không tự sửa trong lúc bạn nhìn đâu.",
+          "Nhìn xa ra. Ừ, xa hơn cái deadline ấy."
+        ],
+        "thanks": [
+          "Hừm, được đấy. Approve.",
+          "Thấy chưa, nghe lời mình là đúng mà. LGTM."
+        ],
+        "click": [
+          "Gì? Đừng có chọc, mình đang review code!",
+          "Hả? ...Thôi được, chào một cái thôi đó."
+        ],
+        "chatter": [
+          "Ai merge thẳng vào main thế kia?!",
+          "Họp mà có thể là một cái email thì ghét lắm."
+        ],
+        "skill1": [
+          "Code của bạn sẽ được review. Bằng mưa."
+        ],
+        "skill2": [
+          "Refactor! Đoạn code này... mình tiễn nó."
+        ]
+      },
+      "en": {
+        "hello": [
+          "Oh, you're here. Not that I was waiting or anything!"
+        ],
+        "water": [
+          "Drink water. Not that I care, but who'll review my PRs if you pass out?",
+          "{minutes} minutes without water? Your code gets refactored more than your body.",
+          "Your body is throwing warnings. Don't ignore them like you ignore the linter."
+        ],
+        "move": [
+          "Stand up! Your posture is more off than an intern's CSS.",
+          "Walk around a bit. I don't want a coworker shaped like a question mark.",
+          "Stretch! Don't make me say it twice."
+        ],
+        "eyes": [
+          "Rest your eyes. Dark mode won't save you.",
+          "Look away for 20 seconds. Pixels don't fix themselves while you stare.",
+          "Look far away. Yes, farther than the deadline."
+        ],
+        "thanks": [
+          "Hmph, not bad. Approved.",
+          "See? Listening to me was right. LGTM."
+        ],
+        "click": [
+          "What? Don't poke me, I'm reviewing code!",
+          "Huh? ...Fine. One hello. That's it."
+        ],
+        "chatter": [
+          "Who merged straight into main?!",
+          "I hate meetings that could've been an email."
+        ],
+        "skill1": [
+          "Your code is getting reviewed. By rain."
+        ],
+        "skill2": [
+          "Refactor! This function... I will end it."
+        ]
+      },
+      "ja": {
+        "hello": [
+          "来たのね。別に待ってたわけじゃないから！"
+        ],
+        "water": [
+          "水飲みなさい。別に心配してるわけじゃないけど、倒れたら誰がPRレビューするのよ。",
+          "{minutes}分も水なし？コードの方が体よりリファクタされてるじゃない。",
+          "体が警告出してるわよ。リンターみたいに無視しないで。"
+        ],
+        "move": [
+          "立って！その姿勢、新人のCSSよりズレてる。",
+          "少し歩きなさい。はてなマークみたいな同僚はいらないの。",
+          "伸びして！二回言わせないで。"
+        ],
+        "eyes": [
+          "目を休めなさい。ダークモードじゃ救えないわよ。",
+          "20秒画面から離れて。見つめててもピクセルは直らないの。",
+          "遠くを見て。そう、締め切りよりも遠く。"
+        ],
+        "thanks": [
+          "ふん、悪くないわね。承認。",
+          "ほらね、私の言うこと聞いて正解でしょ。LGTM。"
+        ],
+        "click": [
+          "なに？つつかないで、レビュー中なの！",
+          "は？…まあいいわ、挨拶くらいはしてあげる。"
+        ],
+        "chatter": [
+          "誰よ、mainに直接マージしたの！？",
+          "メールで済む会議、ほんと嫌い。"
+        ],
+        "skill1": [
+          "あなたのコード、レビューします。雨で。"
+        ],
+        "skill2": [
+          "リファクタリング！この関数、消えなさい。"
+        ]
+      }
+    },
+    "taro": {
+      "vi": {
+        "hello": [
+          "Chào buổi sáng! Hôm nay mình quyết tâm về đúng giờ. Như hôm qua."
+        ],
+        "water": [
+          "Uống nước đi, trước khi sếp giao thêm việc.",
+          "{minutes} phút rồi, uống nước đi. Nước miễn phí, không như cà phê ngoài quán.",
+          "Báo cáo: mức nước trong người bạn đang dưới KPI."
+        ],
+        "move": [
+          "Đi lấy nước, tiện đi ngang phòng sếp, à thôi đi đường vòng.",
+          "Đứng dậy đi. Ghế công ty không trả lương ngồi thêm giờ đâu.",
+          "Vươn vai nào! Excel chờ được, lưng bạn thì không."
+        ],
+        "eyes": [
+          "Nhìn ra cửa sổ đi, giả vờ đang suy nghĩ chiến lược.",
+          "Nghỉ mắt 20 giây. Bảng tính không tự sum được nhưng chờ được.",
+          "Mắt bạn mỏi như mình sau buổi họp 3 tiếng rồi."
+        ],
+        "thanks": [
+          "Tuyệt! Ghi vào báo cáo cuối ngày: hoàn thành.",
+          "Hay quá, xứng đáng được tăng lương. Tiếc là mình không duyệt được."
+        ],
+        "click": [
+          "Dạ? Sếp gọi em ạ? À, là bạn à. May quá.",
+          "Đừng bấm nữa, mình tưởng có email mới."
+        ],
+        "chatter": [
+          "Còn mấy ngày nữa lương về nhỉ...",
+          "Cuộc họp này lẽ ra chỉ cần một email."
+        ],
+        "skill1": [
+          "Ngày lương về rồi! Hứng lấy đi!"
+        ],
+        "skill2": [
+          "Duyệt! Đóng dấu cái rụp, xong deadline."
+        ]
+      },
+      "en": {
+        "hello": [
+          "Good morning! Today I'm leaving on time. Just like yesterday."
+        ],
+        "water": [
+          "Drink water before the boss hands you more work.",
+          "{minutes} minutes already. Have some water, it's free, unlike café coffee.",
+          "Report: your hydration level is below KPI."
+        ],
+        "move": [
+          "Go grab some water. Take the long way around the boss's office.",
+          "Stand up. The company doesn't pay chair overtime.",
+          "Stretch! The spreadsheet can wait, your back can't."
+        ],
+        "eyes": [
+          "Look out the window. Pretend you're thinking about strategy.",
+          "Rest your eyes for 20 seconds. The spreadsheet won't sum itself, but it can wait.",
+          "Your eyes look as tired as I feel after a 3-hour meeting."
+        ],
+        "thanks": [
+          "Excellent! I'll put it in the end-of-day report: completed.",
+          "Great job, you deserve a raise. Sadly I can't approve one."
+        ],
+        "click": [
+          "Yes, boss? Oh, it's you. Phew.",
+          "Stop clicking, I thought it was a new email."
+        ],
+        "chatter": [
+          "How many days until payday again...",
+          "This meeting should have been an email."
+        ],
+        "skill1": [
+          "It's payday! Catch it all!"
+        ],
+        "skill2": [
+          "Approved! One stamp and the deadline is dead."
+        ]
+      },
+      "ja": {
+        "hello": [
+          "おはようございます！今日こそ定時で帰ります。昨日もそう言いました。"
+        ],
+        "water": [
+          "上司に仕事を追加される前に水を飲もう。",
+          "もう{minutes}分。水を飲もう。カフェのコーヒーと違ってタダだよ。",
+          "報告：あなたの水分量はKPIを下回っています。"
+        ],
+        "move": [
+          "水を取りに行こう。部長の席の前は遠回りで。",
+          "立とう。会社は椅子の残業代を払ってくれないよ。",
+          "伸びをしよう！エクセルは待てるけど、腰は待てない。"
+        ],
+        "eyes": [
+          "窓の外を見よう。戦略を考えてるふりをして。",
+          "20秒目を休めよう。表は勝手に合計されないけど、待ってくれる。",
+          "3時間会議の後の僕くらい目が疲れてるよ。"
+        ],
+        "thanks": [
+          "素晴らしい！日報に書いておきます：完了。",
+          "よくできました、昇給ものです。僕には承認できないけど。"
+        ],
+        "click": [
+          "はい部長！…あ、あなたでしたか。よかった。",
+          "クリックしないで、新着メールかと思った。"
+        ],
+        "chatter": [
+          "給料日まであと何日だっけ…",
+          "この会議、メールで済んだよね。"
+        ],
+        "skill1": [
+          "給料日だー！ぜんぶ受け止めろ！"
+        ],
+        "skill2": [
+          "承認！ハンコ一発、締め切りも解決。"
+        ]
+      }
+    },
+    "hana": {
+      "vi": {
+        "hello": [
+          "Chào buổi sáng~ Có tin hot đây, nhưng uống nước trước đã!"
+        ],
+        "water": [
+          "Uống nước đi bạn ơi, da đẹp mới đi buôn chuyện được!",
+          "{minutes} phút rồi đó! Cốc nước của bạn cô đơn lắm rồi.",
+          "Nghe nói người uống đủ nước thì hết thứ Hai buồn. Thử đi!"
+        ],
+        "move": [
+          "Đứng dậy đi pantry với mình nào, có bánh mới đó!",
+          "Đi một vòng văn phòng đi, tiện xem ai đang lướt Shopee.",
+          "Vận động chút nào~ Ngồi mãi là thành tượng văn phòng đó."
+        ],
+        "eyes": [
+          "Nhìn cây xanh ngoài cửa sổ đi, mắt sẽ cảm ơn bạn!",
+          "Nhắm mắt 20 giây nha, mình canh không cho ai gọi đâu.",
+          "Màn hình có đẹp đến mấy cũng phải nghỉ mắt nha~"
+        ],
+        "thanks": [
+          "Yay! Bạn là nhân viên chăm sóc bản thân xuất sắc tháng này!",
+          "Giỏi quá đi! Thưởng bạn một miếng snack tưởng tượng nè."
+        ],
+        "click": [
+          "Hihi, gì đó? Muốn nghe tin hot không?",
+          "Ơ, bạn cũng ghiền bấm mình hả?"
+        ],
+        "chatter": [
+          "Nghe đồn trưa nay có trà sữa miễn phí... chắc là đồn thôi.",
+          "Thứ Hai gì mà dài như thứ Năm vậy..."
+        ],
+        "skill1": [
+          "Tiệc snack mở màn! Ai cũng có phần nha."
+        ],
+        "skill2": [
+          "Nghe nói gì chưa nè? Kể nghe, kể nghe!"
+        ]
+      },
+      "en": {
+        "hello": [
+          "Morning~ I've got hot gossip, but water first!"
+        ],
+        "water": [
+          "Drink water! Good skin first, gossip later!",
+          "{minutes} minutes already! Your water bottle is getting lonely.",
+          "They say people who drink enough water don't get Monday blues. Try it!"
+        ],
+        "move": [
+          "Come to the pantry with me, there are new snacks!",
+          "Take a lap around the office. See who's online shopping.",
+          "Let's move a little~ Sit too long and you'll become an office statue."
+        ],
+        "eyes": [
+          "Look at the plants outside, your eyes will thank you!",
+          "Close your eyes for 20 seconds, I'll make sure nobody calls you.",
+          "No matter how pretty the screen is, give your eyes a break~"
+        ],
+        "thanks": [
+          "Yay! You're this month's employee of self-care!",
+          "So good! Here's an imaginary snack for you."
+        ],
+        "click": [
+          "Hehe, what is it? Want to hear some gossip?",
+          "Oh, you're addicted to clicking me too?"
+        ],
+        "chatter": [
+          "I heard there's free bubble tea at lunch... probably just a rumor.",
+          "Why does this Monday feel like a Thursday..."
+        ],
+        "skill1": [
+          "Snack party time! There's enough for everyone."
+        ],
+        "skill2": [
+          "Did you hear? Okay, okay, I'll tell you everything!"
+        ]
+      },
+      "ja": {
+        "hello": [
+          "おはよ〜！ビッグニュースあるけど、まずはお水ね！"
+        ],
+        "water": [
+          "お水飲んで！お肌が元気じゃないとうわさ話もできないよ！",
+          "もう{minutes}分だよ！マイボトルが寂しがってる。",
+          "お水をちゃんと飲む人は月曜病にならないんだって。試してみて！"
+        ],
+        "move": [
+          "一緒に給湯室行こ、新しいお菓子あるよ！",
+          "オフィスを一周しよ。ネットで買い物してる人チェック。",
+          "ちょっと動こ〜。座りっぱなしだとオフィスの銅像になっちゃう。"
+        ],
+        "eyes": [
+          "窓の外の緑を見て。目が喜ぶよ！",
+          "20秒目を閉じて。誰にも呼ばせないから。",
+          "どんなに素敵な画面でも、目は休ませてね〜"
+        ],
+        "thanks": [
+          "やった！今月のセルフケア社員賞はあなた！",
+          "えらい！想像上のおやつをあげる。"
+        ],
+        "click": [
+          "ふふ、なあに？うわさ聞きたい？",
+          "あれ、あなたもクリック中毒？"
+        ],
+        "chatter": [
+          "お昼にタピオカ無料ってうわさ…たぶんうわさだけ。",
+          "この月曜日、木曜日くらい長くない？"
+        ],
+        "skill1": [
+          "おやつパーティー開幕！みんなの分あるよ。"
+        ],
+        "skill2": [
+          "ねえ聞いた？全部教えちゃう！"
+        ]
+      }
+    },
+    "leo": {
+      "vi": {
+        "hello": [
+          "Bonjour! Hôm nay là một ngày đầy cảm hứng... cho tới khi khách gửi feedback."
+        ],
+        "water": [
+          "Nghệ sĩ cũng cần nước, không chỉ cần cảm hứng.",
+          "{minutes} phút không uống nước? Bạn khô hơn cái moodboard của khách rồi.",
+          "Uống nước đi. Màu da bạn đang chuyển sang tông xám nhạt đấy."
+        ],
+        "move": [
+          "Đứng dậy đi, bố cục cơ thể bạn đang mất cân bằng nghiêm trọng.",
+          "Đi dạo tìm cảm hứng đi! Ngồi mãi chỉ ra được font Comic Sans.",
+          "Vươn vai như đang trình bày concept trước khách lớn!"
+        ],
+        "eyes": [
+          "Nghỉ mắt đi, nhìn mãi màu hex là thấy ảo giác đó.",
+          "Nhắm mắt lại, tưởng tượng một thế giới không có câu 'cho logo to lên'.",
+          "Nhìn ra xa đi, ngắm vật thể có độ tương phản thật ngoài đời."
+        ],
+        "thanks": [
+          "Magnifique! Một kiệt tác của việc chăm sóc bản thân.",
+          "Tuyệt, phiên bản final_final_v3 của bạn đây rồi."
+        ],
+        "click": [
+          "Á, đừng chạm vào nghệ sĩ khi đang sáng tác!",
+          "Bạn muốn góp ý à? ...Làm ơn đừng nói 'to logo lên'."
+        ],
+        "chatter": [
+          "Khách bảo 'làm cho nó pop hơn'. Pop là pop thế nào?",
+          "File final, final2, final_thật_sự... mình đã quá mệt."
+        ],
+        "skill1": [
+          "Màu sắc ơi, bùng nổ đi! Đây mới là nghệ thuật."
+        ],
+        "skill2": [
+          "Khách bảo logo to thêm nữa... Đây, to hết cỡ!"
+        ]
+      },
+      "en": {
+        "hello": [
+          "Bonjour! Today is full of inspiration... until the client sends feedback."
+        ],
+        "water": [
+          "Artists need water too, not just inspiration.",
+          "{minutes} minutes without water? You're drier than the client's moodboard.",
+          "Drink up. Your skin tone is drifting toward light gray."
+        ],
+        "move": [
+          "Stand up, your body's composition is seriously unbalanced.",
+          "Go for a walk and find inspiration! Sitting only produces Comic Sans.",
+          "Stretch like you're presenting a concept to a big client!"
+        ],
+        "eyes": [
+          "Rest your eyes. Stare at hex codes long enough and you'll hallucinate.",
+          "Close your eyes and imagine a world where nobody says 'make the logo bigger'.",
+          "Look far away, at something with real-world contrast."
+        ],
+        "thanks": [
+          "Magnifique! A masterpiece of self-care.",
+          "Perfect, here's your final_final_v3."
+        ],
+        "click": [
+          "Ah, never touch an artist mid-creation!",
+          "Feedback? ...Please don't say 'make the logo bigger'."
+        ],
+        "chatter": [
+          "The client said 'make it pop'. Pop how, exactly?",
+          "final, final2, final_for_real... I'm so tired."
+        ],
+        "skill1": [
+          "Colors, explode! This is what art looks like."
+        ],
+        "skill2": [
+          "The client said bigger logo... Behold, maximum bigger!"
+        ]
+      },
+      "ja": {
+        "hello": [
+          "ボンジュール！今日はひらめきに満ちた日…クライアントのフィードバックが来るまでは。"
+        ],
+        "water": [
+          "アーティストにもインスピレーションだけじゃなく水が必要だよ。",
+          "{minutes}分も水なし？クライアントのムードボードより乾いてるよ。",
+          "水を飲んで。肌の色がライトグレーに寄ってきてる。"
+        ],
+        "move": [
+          "立って。君の体のレイアウト、バランスが崩れてる。",
+          "散歩してインスピレーションを探そう！座りっぱなしじゃComic Sansしか出てこない。",
+          "大事なクライアントにコンセプトを発表するみたいに伸びをしよう！"
+        ],
+        "eyes": [
+          "目を休めて。カラーコードを見すぎると幻覚が見えるよ。",
+          "目を閉じて、「ロゴを大きく」と誰も言わない世界を想像して。",
+          "遠くを見よう。リアルなコントラストのあるものをね。"
+        ],
+        "thanks": [
+          "マニフィーク！セルフケアの傑作だ。",
+          "完璧、これが君の最終_最終_v3だ。"
+        ],
+        "click": [
+          "ああ、創作中のアーティストに触れないで！",
+          "フィードバック？…「ロゴ大きく」だけはやめて。"
+        ],
+        "chatter": [
+          "「もっとポップに」って言われた。ポップってどういうこと？",
+          "final、final2、本当のfinal…もう疲れた。"
+        ],
+        "skill1": [
+          "色よ、はじけろ！これがアートだ。"
+        ],
+        "skill2": [
+          "クライアント「ロゴもっと大きく」…はいどうぞ、特大！"
+        ]
+      }
+    },
+    "mei": {
+      "vi": {
+        "hello": [
+          "Chào bạn~ Hôm nay mình chọn palette màu hồng đào nè!"
+        ],
+        "water": [
+          "Uống nước đi~ Cơ thể cũng cần auto-layout chuẩn chỉnh đó!",
+          "{minutes} phút rồi! Độ bão hoà nước của bạn đang về 0%.",
+          "Một ngụm nước = thêm 10 điểm dễ thương. Uống đi!"
+        ],
+        "move": [
+          "Đứng dậy nào! Lưng bạn đang lệch 1px... à không, 10px rồi!",
+          "Đi một vòng đi, đổi góc nhìn mới ra ý tưởng mới~",
+          "Vươn vai thật cao như kéo frame trong Figma nè!"
+        ],
+        "eyes": [
+          "Nghỉ mắt nha, đừng để mắt bị lệch màu như ảnh JPEG nén.",
+          "Nhìn ra xa 20 giây~ Mắt bạn cần một khoảng trắng.",
+          "Nhắm mắt lại, tưởng tượng màu pastel chill chill nè."
+        ],
+        "thanks": [
+          "Hoàn hảo đến từng pixel! ✨",
+          "Yay! Thêm vào design system: bạn chăm chỉ quá trời."
+        ],
+        "click": [
+          "Ui, bạn làm lệch layer của mình rồi!",
+          "Hihi, bạn có biết hôm nay mình đổi màu tóc không? Không à..."
+        ],
+        "chatter": [
+          "Ai đặt màu chữ #FF0000 trên nền #00FF00 vậy trời...",
+          "Thêm chút khoảng trắng là cái gì cũng đẹp lên."
+        ],
+        "skill1": [
+          "Cực quang pastel xin chào. Đẹp hơn mọi cái mockup."
+        ],
+        "skill2": [
+          "Lệch 1px? Không có chuyện đó trên màn hình của mình."
+        ]
+      },
+      "en": {
+        "hello": [
+          "Hi~ Today's palette is peach pink!"
+        ],
+        "water": [
+          "Drink water~ Your body needs a proper auto layout too!",
+          "{minutes} minutes! Your hydration saturation is at 0%.",
+          "One sip of water = +10 cuteness. Drink up!"
+        ],
+        "move": [
+          "Stand up! Your back is 1px off... no, 10px!",
+          "Take a walk, a new angle brings new ideas~",
+          "Stretch up tall like you're dragging a frame in Figma!"
+        ],
+        "eyes": [
+          "Rest your eyes, don't let them get compressed like a JPEG.",
+          "Look far away for 20 seconds~ Your eyes need some white space.",
+          "Close your eyes and imagine soft pastel colors."
+        ],
+        "thanks": [
+          "Pixel perfect! ✨",
+          "Yay! Adding to the design system: you're amazing."
+        ],
+        "click": [
+          "Eek, you nudged my layers!",
+          "Hehe, did you notice my new hair color? No...?"
+        ],
+        "chatter": [
+          "Who put #FF0000 text on a #00FF00 background...",
+          "A bit more white space makes everything prettier."
+        ],
+        "skill1": [
+          "Pastel aurora, hello. Prettier than any mockup."
+        ],
+        "skill2": [
+          "1px off? Not on my watch."
+        ]
+      },
+      "ja": {
+        "hello": [
+          "こんにちは〜！今日のパレットはピーチピンク！"
+        ],
+        "water": [
+          "お水飲んで〜！体にもちゃんとしたオートレイアウトが必要だよ！",
+          "もう{minutes}分！水分の彩度が0%になってる。",
+          "お水ひとくち＝かわいさ+10。飲んで！"
+        ],
+        "move": [
+          "立って！背中が1pxズレてる…ううん、10px！",
+          "ちょっと歩こ。視点を変えると新しいアイデアが出るよ〜",
+          "Figmaでフレームを引っぱるみたいに大きく伸び〜！"
+        ],
+        "eyes": [
+          "目を休めて。圧縮されたJPEGみたいになっちゃうよ。",
+          "20秒遠くを見て〜。目にも余白が必要なの。",
+          "目を閉じて、ふんわりパステルを想像してね。"
+        ],
+        "thanks": [
+          "ピクセルパーフェクト！✨",
+          "やった！デザインシステムに追加：あなたえらすぎ。"
+        ],
+        "click": [
+          "きゃっ、レイヤーがズレちゃった！",
+          "ふふ、髪の色変えたの気づいた？…気づいてない？"
+        ],
+        "chatter": [
+          "緑背景に赤文字って誰…",
+          "余白を少し足すと何でもかわいくなるよね。"
+        ],
+        "skill1": [
+          "パステルオーロラ、こんにちは。どのモックより綺麗。"
+        ],
+        "skill2": [
+          "1pxのズレ？私の画面では許さない。"
+        ]
+      }
+    },
+    "ken": {
+      "vi": {
+        "hello": [
+          "Yo! Hôm nay mình sẽ làm một chiến dịch triệu view! Nhưng trước tiên: chào bạn!"
+        ],
+        "water": [
+          "Uống nước đi! Hydration là trend 2024, 2025 và mãi mãi!",
+          "{minutes} phút không uống nước? Engagement của cơ thể bạn đang tụt dốc!",
+          "Một ngụm nước, tăng 200% năng lượng. Số liệu mình bịa nhưng uống đi!"
+        ],
+        "move": [
+          "Đứng dậy đi! Challenge vươn vai 10 giây, tag ba người bạn!",
+          "Đi một vòng đi, biết đâu nghĩ ra idea viral!",
+          "Vận động thôi! Growth hacking bắt đầu từ cơ bắp!"
+        ],
+        "eyes": [
+          "Nghỉ mắt đi, đừng nhìn dashboard nữa, số không tăng nhanh hơn đâu.",
+          "Nhìn xa 20 giây. Tầm nhìn dài hạn là quan trọng nhất!",
+          "Nhắm mắt lại, visualize KPI quý sau... rồi mở ra uống nước."
+        ],
+        "thanks": [
+          "Đỉnh! Bạn vừa đạt 100% KPI sức khoẻ hôm nay!",
+          "Quá đã! Cái này phải đăng story ngay!"
+        ],
+        "click": [
+          "Ơ, có lead mới à? À, là bạn. Cũng là lead tiềm năng!",
+          "Bấm nữa đi, tương tác càng nhiều thuật toán càng thương!"
+        ],
+        "chatter": [
+          "Nếu không viral thì là do thuật toán.",
+          "Brainstorm tí: content về uống nước bằng... mèo?"
+        ],
+        "skill1": [
+          "Viral! Viral! Hôm nay bài này phải lên xu hướng!"
+        ],
+        "skill2": [
+          "Mic check! Cả thế giới nghe mình nói về KPI nè!"
+        ]
+      },
+      "en": {
+        "hello": [
+          "Yo! Today we launch a million-view campaign! But first: hi!"
+        ],
+        "water": [
+          "Drink water! Hydration is the trend of 2024, 2025 and forever!",
+          "{minutes} minutes without water? Your body's engagement is crashing!",
+          "One sip = 200% more energy. I made that stat up, but drink anyway!"
+        ],
+        "move": [
+          "Stand up! 10-second stretch challenge, tag three friends!",
+          "Take a walk, you might come up with a viral idea!",
+          "Let's move! Growth hacking starts with muscles!"
+        ],
+        "eyes": [
+          "Rest your eyes. Staring at the dashboard won't make the numbers go up.",
+          "Look far away for 20 seconds. Long-term vision matters most!",
+          "Close your eyes, visualize next quarter's KPIs... then open them and drink water."
+        ],
+        "thanks": [
+          "Awesome! You just hit 100% of today's health KPI!",
+          "Amazing! This is going on my story right now!"
+        ],
+        "click": [
+          "Oh, a new lead? Ah, it's you. Also a hot lead!",
+          "Click more, the algorithm loves engagement!"
+        ],
+        "chatter": [
+          "If it didn't go viral, blame the algorithm.",
+          "Quick brainstorm: water-drinking content, but with... cats?"
+        ],
+        "skill1": [
+          "Viral! Viral! This post is trending today!"
+        ],
+        "skill2": [
+          "Mic check! The whole world is hearing about my KPIs!"
+        ]
+      },
+      "ja": {
+        "hello": [
+          "よっ！今日は百万再生キャンペーンだ！でもまずは、おはよう！"
+        ],
+        "water": [
+          "水を飲もう！水分補給は2024年も2025年もずっとトレンド！",
+          "{minutes}分も水なし？体のエンゲージメントが急降下中！",
+          "水ひとくちでエネルギー200%アップ。数字は適当だけど飲もう！"
+        ],
+        "move": [
+          "立って！10秒ストレッチチャレンジ、友達3人タグ付けして！",
+          "ちょっと歩こう、バズるアイデアが浮かぶかも！",
+          "動こう！グロースハックは筋肉から！"
+        ],
+        "eyes": [
+          "目を休めて。ダッシュボード見つめても数字は伸びないよ。",
+          "20秒遠くを見よう。長期ビジョンが一番大事！",
+          "目を閉じて、来期のKPIをイメージ…そして目を開けて水を飲もう。"
+        ],
+        "thanks": [
+          "最高！今日の健康KPI、100%達成！",
+          "すごい！今すぐストーリーに載せなきゃ！"
+        ],
+        "click": [
+          "お、新しいリード？あ、君か。君も有望なリードだ！",
+          "もっとクリックして、アルゴリズムはエンゲージメントが大好き！"
+        ],
+        "chatter": [
+          "バズらなかったらアルゴリズムのせい。",
+          "ブレスト：水を飲むコンテンツ、でも…猫で？"
+        ],
+        "skill1": [
+          "バズれ！今日の投稿は絶対トレンド入り！"
+        ],
+        "skill2": [
+          "マイクチェック！全世界にKPIを届けるぞ！"
+        ]
+      }
+    },
+    "yui": {
+      "vi": {
+        "hello": [
+          "Hi hi~ Hôm nay ánh sáng đẹp ghê, chụp một tấm đã!"
+        ],
+        "water": [
+          "Uống nước đi, da căng bóng mới lên hình đẹp nha~",
+          "{minutes} phút rồi đó! Chưa uống nước là chưa đủ aesthetic.",
+          "Bình nước của bạn chưa được lên story hôm nay. Uống đi rồi mình chụp!"
+        ],
+        "move": [
+          "Đứng dậy đi, tìm góc sống ảo mới nào!",
+          "Vươn vai đi, tư thế này lên reels cũng đẹp đó!",
+          "Đi lại chút đi, trend đi bộ 10 ngàn bước đang hot lắm!"
+        ],
+        "eyes": [
+          "Nghỉ mắt nha, mắt long lanh mới ăn ảnh~",
+          "Nhìn ra xa đi, đời thật cũng có filter tự nhiên đó.",
+          "Nhắm mắt 20 giây, coi như đang đắp mặt nạ cho mắt nè."
+        ],
+        "thanks": [
+          "Xinh xỉu! Cái này đáng 10 ngàn like!",
+          "Yay, bạn là influencer sống khoẻ của mình đó!"
+        ],
+        "click": [
+          "Ơ, đang quay content mà! Diễn lại từ đầu nha~",
+          "Bạn bấm vậy là tính một lượt tương tác đó nha!"
+        ],
+        "chatter": [
+          "Hôm nay đăng gì đây ta... caption khó nghĩ quá.",
+          "Lịch đăng bài full kín tuần này luôn rồi."
+        ],
+        "skill1": [
+          "Khoan! Góc này đẹp quá. Cười lên, 3, 2, 1!"
+        ],
+        "skill2": [
+          "Vào live rồi nè! Thả tim cho mình nha!"
+        ]
+      },
+      "en": {
+        "hello": [
+          "Hi hi~ The light is gorgeous today, one photo first!"
+        ],
+        "water": [
+          "Drink water, glowing skin looks better on camera~",
+          "{minutes} minutes already! No water, no aesthetic.",
+          "Your water bottle hasn't been on my story today. Drink and I'll take a pic!"
+        ],
+        "move": [
+          "Stand up and let's find a new photo angle!",
+          "Stretch! That pose would look great on reels!",
+          "Walk around a bit, the 10k steps trend is so hot right now!"
+        ],
+        "eyes": [
+          "Rest your eyes, sparkly eyes are more photogenic~",
+          "Look far away, real life has a natural filter too.",
+          "Close your eyes for 20 seconds, like a sheet mask for your eyes."
+        ],
+        "thanks": [
+          "So cute! That's worth 10k likes!",
+          "Yay, you're my favorite wellness influencer!"
+        ],
+        "click": [
+          "Hey, I'm filming! Let's take it from the top~",
+          "Every click counts as engagement, you know!"
+        ],
+        "chatter": [
+          "What should I post today... captions are so hard.",
+          "My content calendar is fully booked this week."
+        ],
+        "skill1": [
+          "Wait! This angle is perfect. Smile, 3, 2, 1!"
+        ],
+        "skill2": [
+          "We're live! Send me all the hearts!"
+        ]
+      },
+      "ja": {
+        "hello": [
+          "やっほ〜！今日は光がきれい、まず一枚撮らせて！"
+        ],
+        "water": [
+          "お水飲んで、ツヤ肌の方が映えるよ〜",
+          "もう{minutes}分！お水飲まないと映えないよ。",
+          "今日はまだマイボトルをストーリーに載せてない。飲んだら撮るね！"
+        ],
+        "move": [
+          "立って、新しい映えスポット探そ！",
+          "伸びして！そのポーズ、リールでも映える！",
+          "ちょっと歩こ、一万歩チャレンジが今アツいの！"
+        ],
+        "eyes": [
+          "目を休めてね、うるうるの目の方が写真映えするよ〜",
+          "遠くを見て。リアルにも天然のフィルターがあるの。",
+          "20秒目を閉じて、目のシートマスクだと思って。"
+        ],
+        "thanks": [
+          "かわいすぎ！これは一万いいね！",
+          "やった、あなたは私の推しウェルネスインフルエンサー！"
+        ],
+        "click": [
+          "ちょっと、撮影中なのに！最初から撮り直し〜",
+          "そのクリック、エンゲージメント1回にカウントね！"
+        ],
+        "chatter": [
+          "今日は何を投稿しよう…キャプションむずかしい。",
+          "今週の投稿カレンダー、もうパンパン。"
+        ],
+        "skill1": [
+          "待って！この角度最高。はいチーズ、3、2、1！"
+        ],
+        "skill2": [
+          "ライブ始まったよ！ハートいっぱいちょうだい！"
+        ]
+      }
+    },
+    "sora": {
+      "vi": {
+        "hello": [
+          "Chào bạn, mình sync nhanh 5 phút về kế hoạch hôm nay nhé?"
+        ],
+        "water": [
+          "Action item: uống nước. Owner: bạn. Deadline: ngay bây giờ.",
+          "{minutes} phút chưa uống nước, task này bị overdue rồi đó.",
+          "Sprint này mục tiêu là đủ nước. Đừng để lọt sang sprint sau."
+        ],
+        "move": [
+          "Đứng dậy đi, mình gọi đây là daily standup đúng nghĩa đen.",
+          "Đi một vòng đi, coi như đi gặp stakeholder.",
+          "Vận động chút, đừng để cơ thể thành technical debt."
+        ],
+        "eyes": [
+          "Nghỉ mắt 20 giây, blocker lớn nhất hôm nay là mắt mỏi.",
+          "Nhìn xa ra, nhìn tổng thể roadmap chẳng hạn.",
+          "Nhắm mắt lại, timebox 20 giây, không gia hạn."
+        ],
+        "thanks": [
+          "Tuyệt, chuyển task sang Done!",
+          "Xong đúng hạn, hiếm có khó tìm. Cảm ơn bạn!"
+        ],
+        "click": [
+          "Có việc gì cần escalate không bạn?",
+          "Mình ghi nhận nhé, sẽ đưa vào backlog."
+        ],
+        "chatter": [
+          "Thêm một tính năng nhỏ thôi... câu nói kinh dị nhất năm.",
+          "Ước tính 2 ngày, thực tế 2 tuần, như mọi khi."
+        ],
+        "skill1": [
+          "Mình sync nhanh 5 phút nhé. Chỉ 5 phút thôi, hứa."
+        ],
+        "skill2": [
+          "Scope creep? Khiên mở! Không được vào!"
+        ]
+      },
+      "en": {
+        "hello": [
+          "Hi, quick 5-minute sync on today's plan?"
+        ],
+        "water": [
+          "Action item: drink water. Owner: you. Deadline: now.",
+          "{minutes} minutes without water, this task is overdue.",
+          "This sprint's goal is hydration. Don't let it slip to the next sprint."
+        ],
+        "move": [
+          "Stand up, this is a stand-up in the literal sense.",
+          "Take a lap, call it stakeholder outreach.",
+          "Move a bit, don't let your body turn into technical debt."
+        ],
+        "eyes": [
+          "Rest your eyes for 20 seconds, tired eyes are today's biggest blocker.",
+          "Look far away, at the big-picture roadmap maybe.",
+          "Close your eyes. Timebox: 20 seconds, no extensions."
+        ],
+        "thanks": [
+          "Great, moving the task to Done!",
+          "Done on time, a rare sight. Thank you!"
+        ],
+        "click": [
+          "Anything you need to escalate?",
+          "Noted, I'll add it to the backlog."
+        ],
+        "chatter": [
+          "'Just one tiny feature'... the scariest words of the year.",
+          "Estimated 2 days, took 2 weeks, as always."
+        ],
+        "skill1": [
+          "Quick 5-minute sync? Just five, I promise."
+        ],
+        "skill2": [
+          "Scope creep? Shield up! Nothing gets through!"
+        ]
+      },
+      "ja": {
+        "hello": [
+          "やあ、今日の予定について5分だけ同期しよう？"
+        ],
+        "water": [
+          "アクションアイテム：水を飲む。担当：あなた。期限：今。",
+          "{minutes}分水なし、このタスクは期限切れだよ。",
+          "今スプリントのゴールは水分補給。次のスプリントに持ち越さないで。"
+        ],
+        "move": [
+          "立とう、文字通りのスタンドアップだ。",
+          "ちょっと一周しよう、ステークホルダー巡りってことで。",
+          "少し動こう、体を技術的負債にしないで。"
+        ],
+        "eyes": [
+          "20秒目を休めよう、今日最大のブロッカーは目の疲れだ。",
+          "遠くを見よう、ロードマップ全体とかね。",
+          "目を閉じて。タイムボックス20秒、延長なし。"
+        ],
+        "thanks": [
+          "いいね、タスクを完了に移動！",
+          "期限内に完了、珍しい。ありがとう！"
+        ],
+        "click": [
+          "何かエスカレーションすることある？",
+          "了解、バックログに入れておくね。"
+        ],
+        "chatter": [
+          "「ちょっとした機能追加だけ」…今年一番怖い言葉。",
+          "見積もり2日、実際2週間。いつも通り。"
+        ],
+        "skill1": [
+          "5分だけ軽く同期しよう。本当に5分だけ。"
+        ],
+        "skill2": [
+          "スコープクリープ？シールド展開！通さない！"
+        ]
+      }
+    },
+    "aki": {
+      "vi": {
+        "hello": [
+          "Chào bạn. Yêu cầu hôm nay: làm việc hiệu quả và khoẻ mạnh. Đã xác nhận."
+        ],
+        "water": [
+          "Là một người dùng, tôi muốn uống nước, để không bị khô như tài liệu đặc tả.",
+          "{minutes} phút không uống nước. Đây là một edge case nghiêm trọng.",
+          "Acceptance criteria: đã uống ít nhất một cốc nước. Hiện tại: chưa đạt."
+        ],
+        "move": [
+          "Đứng dậy đi. Yêu cầu phi chức năng: lưng không đau.",
+          "Đi lại chút đi, mình sẽ ghi nhận vào biên bản.",
+          "Vận động đi. Ngồi im quá lâu nằm ngoài phạm vi sức khoẻ cho phép."
+        ],
+        "eyes": [
+          "Nghỉ mắt 20 giây. Đây là yêu cầu bắt buộc, không phải nice-to-have.",
+          "Nhìn xa ra, phân tích bức tường đối diện chẳng hạn.",
+          "Nhắm mắt lại, mình sẽ không hỏi thêm câu nào trong 20 giây."
+        ],
+        "thanks": [
+          "Đã kiểm tra: đạt toàn bộ acceptance criteria.",
+          "Rất tốt, cập nhật trạng thái: Approved."
+        ],
+        "click": [
+          "Bạn có yêu cầu thay đổi à? Gửi change request nhé.",
+          "Cho mình hỏi lại: bạn bấm vì lý do nghiệp vụ gì?"
+        ],
+        "chatter": [
+          "Yêu cầu 'đơn giản thôi' thường không đơn giản chút nào.",
+          "Mình đã viết thêm ba trường hợp ngoại lệ. Chỉ để chắc chắn."
+        ],
+        "skill1": [
+          "Acceptance criteria: từng mục một, tích hết cho mình."
+        ],
+        "skill2": [
+          "Radar yêu cầu bật! Yêu cầu ẩn đâu rồi, ra đây!"
+        ]
+      },
+      "en": {
+        "hello": [
+          "Hello. Today's requirement: productive and healthy. Confirmed."
+        ],
+        "water": [
+          "As a user, I want to drink water, so that I'm not as dry as the spec document.",
+          "{minutes} minutes without water. That's a critical edge case.",
+          "Acceptance criteria: drank at least one glass of water. Current status: not met."
+        ],
+        "move": [
+          "Stand up. Non-functional requirement: no back pain.",
+          "Walk around a bit, I'll note it in the minutes.",
+          "Move. Sitting still this long is out of the approved health scope."
+        ],
+        "eyes": [
+          "Rest your eyes for 20 seconds. This is a must-have, not a nice-to-have.",
+          "Look far away, and analyze the opposite wall, perhaps.",
+          "Close your eyes. I won't ask a single question for 20 seconds."
+        ],
+        "thanks": [
+          "Verified: all acceptance criteria met.",
+          "Very good. Status updated: Approved."
+        ],
+        "click": [
+          "Do you have a change request? Please submit it formally.",
+          "Let me clarify: what's the business reason for that click?"
+        ],
+        "chatter": [
+          "Requirements described as 'simple' never are.",
+          "I added three more edge cases. Just to be sure."
+        ],
+        "skill1": [
+          "Acceptance criteria: one by one, tick them all."
+        ],
+        "skill2": [
+          "Requirements radar on! Hidden requirements, show yourselves!"
+        ]
+      },
+      "ja": {
+        "hello": [
+          "こんにちは。本日の要件：効率よく、健康に。確認済みです。"
+        ],
+        "water": [
+          "ユーザーとして、仕様書みたいに乾かないために、水を飲みたい。",
+          "{minutes}分水なし。これは重大なエッジケースです。",
+          "受け入れ基準：水を一杯以上飲んだこと。現状：未達。"
+        ],
+        "move": [
+          "立ってください。非機能要件：腰が痛くないこと。",
+          "少し歩きましょう、議事録に記録しておきます。",
+          "動いてください。この長さの座りっぱなしは健康のスコープ外です。"
+        ],
+        "eyes": [
+          "20秒目を休めて。これは必須要件で、あったらいいな、ではありません。",
+          "遠くを見て。向かいの壁の分析とか。",
+          "目を閉じて。20秒間は質問しません。"
+        ],
+        "thanks": [
+          "確認しました：受け入れ基準をすべて満たしています。",
+          "とても良いです。ステータスを承認済みに更新。"
+        ],
+        "click": [
+          "変更要求ですか？正式に提出してください。",
+          "確認させてください：そのクリックの業務上の理由は？"
+        ],
+        "chatter": [
+          "「簡単な要件です」が簡単だったためしがない。",
+          "念のため、例外ケースをあと三つ追加しました。"
+        ],
+        "skill1": [
+          "受け入れ基準を一つずつ、全部チェック。"
+        ],
+        "skill2": [
+          "要件レーダー起動！隠れた要件、出てきなさい！"
+        ]
+      }
+    }
+  },
+  "shared": {
+    "vi": {
+      "poke": [
+        "Đủ rồi đó! Bấm nữa là mình tính phí đó nha!",
+        "Ê ê, đây không phải nút bấm giảm stress!",
+        "Bấm mình hoài, bộ hết việc làm rồi hả?"
+      ],
+      "wake": [
+        "Hả?! Mình không ngủ! Mình đang... suy nghĩ sâu!",
+        "Ai đánh thức mình vậy... đang mơ được tăng lương mà.",
+        "Ưm... 5 phút nữa thôi..."
+      ],
+      "bored": [
+        "Chán quá à...",
+        "Có ai chơi với mình không...",
+        "Ngồi đếm pixel trên màn hình cho vui."
+      ],
+      "sleepy": [
+        "Ngáp... buồn ngủ ghê.",
+        "Mắt díp lại rồi..."
+      ],
+      "kick": [
+        "Icon này nằm sai chỗ rồi. Sút!",
+        "Desktop bừa quá, để mình dọn kiểu của mình!",
+        "Hây-ya!"
+      ],
+      "window": [
+        "Lại {app} à? Cho mình ngồi ké chút nha~",
+        "{app} hôm nay trông ngon lành đó. Mình ngồi đây được không?",
+        "Nghỉ chân trên {app} tí. Đừng kéo cửa sổ nha!",
+        "Từ trên {app} nhìn xuống, bạn làm việc chăm ghê."
+      ],
+      "endOfDay": [
+        "Hết giờ rồi! Tắt máy về thôi, deadline để mai lo!",
+        "Một ngày làm việc kết thúc. Bạn đã vất vả rồi!",
+        "Về nhà nghỉ ngơi đi, mai gặp lại nha!"
+      ],
+      "snoozed": [
+        "Ok, lát nữa mình quay lại. Đừng trốn nha!",
+        "Được rồi, mình hoãn. Nhưng mình nhớ dai lắm đó.",
+        "Tạm tha cho bạn lần này~"
+      ],
+      "ignored": [
+        "Hừm, bơ mình à? Thôi được, lần sau nhớ nha.",
+        "Không ai nghe mình nói hết...",
+        "Ok... mình đi đây, nhưng sức khoẻ là của bạn đó."
+      ]
+    },
+    "en": {
+      "poke": [
+        "That's enough! Any more clicks and I'm charging you!",
+        "Hey, I'm not a stress-relief button!",
+        "Clicking me again? Run out of work?"
+      ],
+      "wake": [
+        "Huh?! I wasn't asleep! I was... thinking deeply!",
+        "Who woke me up... I was dreaming about a raise.",
+        "Mmm... five more minutes..."
+      ],
+      "bored": [
+        "So bored...",
+        "Anyone want to play with me...",
+        "Counting the pixels on the screen for fun."
+      ],
+      "sleepy": [
+        "Yawn... so sleepy.",
+        "My eyes are closing..."
+      ],
+      "kick": [
+        "This icon's in the wrong place. Kick!",
+        "Your desktop is a mess, let me tidy it my way!",
+        "Hi-yah!"
+      ],
+      "window": [
+        "{app} again? Mind if I sit up here~",
+        "{app} is looking good today. Can I sit here?",
+        "Just resting my feet on {app}. Don't drag the window!",
+        "From up here on {app}, you look so hardworking."
+      ],
+      "endOfDay": [
+        "Time's up! Shut it down and go home, the deadline can wait till tomorrow!",
+        "Another workday done. Great job today!",
+        "Go home and rest, see you tomorrow!"
+      ],
+      "snoozed": [
+        "Okay, I'll be back later. Don't hide!",
+        "Fine, snoozed. But I have a long memory.",
+        "I'll let you off this time~"
+      ],
+      "ignored": [
+        "Hmph, ignoring me? Fine, next time then.",
+        "Nobody ever listens to me...",
+        "Okay... I'm off. But it's your health, you know."
+      ]
+    },
+    "ja": {
+      "poke": [
+        "もういいでしょ！これ以上クリックしたら料金取るよ！",
+        "ちょっと、ストレス解消ボタンじゃないよ！",
+        "またクリック？仕事なくなったの？"
+      ],
+      "wake": [
+        "は！？寝てないよ！深く…考えてたの！",
+        "誰が起こしたの…昇給の夢見てたのに。",
+        "うーん…あと5分…"
+      ],
+      "bored": [
+        "ひまだなぁ…",
+        "誰か遊んでくれないかな…",
+        "暇つぶしに画面のピクセルを数えてる。"
+      ],
+      "sleepy": [
+        "ふあぁ…眠い。",
+        "まぶたが落ちてくる…"
+      ],
+      "kick": [
+        "このアイコン、場所がおかしい。キック！",
+        "デスクトップが散らかってるから、私流に片づけるね！",
+        "えいっ！"
+      ],
+      "window": [
+        "また{app}？ちょっと上に座らせて〜",
+        "今日の{app}、いい感じだね。ここ座っていい？",
+        "{app}の上でちょっと休憩。ウインドウ動かさないでね！",
+        "{app}の上から見ると、すごく頑張ってるね。"
+      ],
+      "endOfDay": [
+        "定時だよ！パソコン閉じて帰ろう、締め切りは明日の自分に任せて！",
+        "今日もお疲れさまでした！",
+        "帰ってゆっくり休んでね、また明日！"
+      ],
+      "snoozed": [
+        "わかった、あとでまた来るね。逃げないでよ！",
+        "了解、後回しね。でも覚えてるからね。",
+        "今回は見逃してあげる〜"
+      ],
+      "ignored": [
+        "むっ、無視？いいよ、次はちゃんとね。",
+        "誰も私の話を聞いてくれない…",
+        "わかった…行くね。でも自分の体なんだからね。"
+      ]
+    }
+  }
+}

@@ -1,0 +1,126 @@
+{
+  "anchor" : {
+    "x" : 64,
+    "y" : 122
+  },
+  "animations" : {
+    "bored" : {
+      "fps" : 2,
+      "frames" : 4,
+      "loop" : true,
+      "row" : 5
+    },
+    "dragged" : {
+      "fps" : 8,
+      "frames" : 4,
+      "loop" : true,
+      "row" : 9
+    },
+    "drink" : {
+      "fps" : 5,
+      "frames" : 8,
+      "loop" : true,
+      "row" : 14
+    },
+    "eyerest" : {
+      "fps" : 2.5,
+      "frames" : 8,
+      "loop" : true,
+      "row" : 16
+    },
+    "grumpy" : {
+      "fps" : 8,
+      "frames" : 4,
+      "loop" : true,
+      "row" : 8
+    },
+    "happy" : {
+      "fps" : 10,
+      "frames" : 6,
+      "loop" : true,
+      "row" : 4
+    },
+    "idle" : {
+      "fps" : 4,
+      "frames" : 4,
+      "loop" : true,
+      "row" : 0
+    },
+    "kick" : {
+      "fps" : 12,
+      "frames" : 7,
+      "loop" : false,
+      "row" : 3
+    },
+    "run" : {
+      "fps" : 16,
+      "frames" : 6,
+      "loop" : true,
+      "row" : 2
+    },
+    "sad" : {
+      "fps" : 3,
+      "frames" : 4,
+      "loop" : true,
+      "row" : 12
+    },
+    "sleep" : {
+      "fps" : 2,
+      "frames" : 4,
+      "loop" : true,
+      "row" : 7
+    },
+    "stretch" : {
+      "fps" : 5,
+      "frames" : 8,
+      "loop" : true,
+      "row" : 15
+    },
+    "surprised" : {
+      "fps" : 6,
+      "frames" : 2,
+      "loop" : true,
+      "row" : 10
+    },
+    "walk" : {
+      "fps" : 12,
+      "frames" : 8,
+      "loop" : true,
+      "row" : 1
+    },
+    "wave" : {
+      "fps" : 6,
+      "frames" : 4,
+      "loop" : true,
+      "row" : 13
+    },
+    "work" : {
+      "fps" : 6,
+      "frames" : 4,
+      "loop" : true,
+      "row" : 11
+    },
+    "yawn" : {
+      "fps" : 5,
+      "frames" : 8,
+      "loop" : false,
+      "row" : 6
+    }
+  },
+  "effects" : [
+    "heart",
+    "note",
+    "anger",
+    "zzz",
+    "dots",
+    "sweat",
+    "exclaim",
+    "sparkle",
+    "check",
+    "water",
+    "eye",
+    "clock"
+  ],
+  "frameSize" : 128,
+  "pixelScale" : 2
+}
