@@ -38,11 +38,12 @@ final class SpriteSheet {
 
     private static var cache: [String: SpriteSheet] = [:]
 
-    /// Shared so each sheet is decoded only once.
+    /// Shared so each sheet is decoded only once. Only one character is on screen at a time, so only its sheet is kept
+    /// (each one is ~24 MB of frames once played).
     static func named(_ id: String) -> SpriteSheet {
         if let sheet = cache[id] { return sheet }
         let sheet = SpriteSheet(characterID: id)
-        cache[id] = sheet
+        cache = [id: sheet]
         return sheet
     }
 
@@ -75,6 +76,11 @@ final class SpriteSheet {
 
     /// Cuts the given (column, row) cells out of `<name>.png`.
     private static func cells(of name: String, _ positions: [(Int, Int)]) -> [CGImage] {
+        // Drain the decoded sheet (~35 MB) as soon as its cells are copied, not at the end of the run loop pass.
+        autoreleasepool { decodeCells(of: name, positions) }
+    }
+
+    private static func decodeCells(of name: String, _ positions: [(Int, Int)]) -> [CGImage] {
         let url = directory.appendingPathComponent("\(name).png")
         guard let png = NSImage(contentsOf: url)?.cgImage(forProposedRect: nil, context: nil, hints: nil) else {
             fatalError("Missing sprite sheet \(url.path)")
