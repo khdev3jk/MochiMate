@@ -4,3 +4,4 @@ build/
 .vscode/
 *.dmg
 *.zip
+__pycache__/

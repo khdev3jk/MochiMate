@@ -80,7 +80,6 @@ final class Pet {
 
     private func speak(_ line: DialogueLine, for seconds: TimeInterval) {
         bubble = (line.text, now + max(seconds, Double(line.text.count) * 0.06))
-        Voice.play(line, female: character.female)
     }
 
     // MARK: - Tick
@@ -145,7 +144,11 @@ final class Pet {
                     resolveReminder(.ignored)
                 } else {
                     // Keep demonstrating, calling out to the user now and then.
-                    steps = [.play(reminder.line?.anim ?? reminder.kind.anim, sheet.duration(reminder.kind.anim) * 2, effect: reminder.kind.effect),
+                    steps = [.run { [weak self] in
+                                 guard let self else { return }
+                                 SkillOverlay.shared.play(reminder.kind, variant: 0, intense: false, feet: self.position, facing: self.facing)
+                             },
+                             .play(reminder.line?.anim ?? reminder.kind.anim, sheet.duration(reminder.kind.anim) * 2, effect: reminder.kind.effect),
                              .face(directionToCursor()),
                              .play(.wave, 1.5, effect: reminder.line?.effect ?? .exclaim)]
                 }
@@ -200,8 +203,13 @@ final class Pet {
         let spot = presentationSpot()
         steps = [.play(.surprised, 0.5, effect: .exclaim)]
         if hypot(spot.x - position.x, spot.y - position.y) > 30 { steps.append(.walk(spot)) }
+        let female = character.female, variant = Int.random(in: 0..<ReminderKind.variants)
         steps += [.face(directionToCursor()),
-                  .run { if let line { Voice.play(line, female: character.female) } },
+                  .run { [weak self] in
+                      guard let self else { return }
+                      SkillOverlay.shared.play(kind, variant: variant, intense: true, feet: self.position, facing: self.facing)
+                      if let line { Voice.play(line, female: female) }
+                  },
                   .play(.wave, 1.6, effect: line?.effect ?? kind.effect)]
     }
 

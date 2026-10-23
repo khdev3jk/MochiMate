@@ -27,16 +27,26 @@ final class SkillOverlay {
     }()
     private var running = 0
 
-    /// Runs `skill` on the screen under `feet` (the pet's feet in global coordinates).
+    /// Runs `skill` on the screen under `feet` (the pet's feet in global coordinates). The effects are drawn for the
+    /// whole screen and shrunk toward the pet's feet, so a skill stays around the character.
     func play(_ skill: Skill, feet: CGPoint, facing: CGFloat) {
+        play(feet: feet, facing: facing, scale: 0.45, skill.cast)
+    }
+
+    /// Runs a reminder's effect: full screen when `intense`, otherwise a quick pulse around the pet.
+    func play(_ reminder: ReminderKind, variant: Int, intense: Bool, feet: CGPoint, facing: CGFloat) {
+        play(feet: feet, facing: facing, scale: 1) { reminder.cast($0, intense: intense, variant: variant) }
+    }
+
+    private func play(feet: CGPoint, facing: CGFloat, scale: CGFloat, _ cast: (SkillFX) -> Void) {
         let screen = NSScreen.screens.first { $0.frame.contains(feet) } ?? NSScreen.main ?? NSScreen.screens[0]
         panel.setFrame(screen.frame, display: false)
         let local = CGPoint(x: feet.x - screen.frame.minX, y: feet.y - screen.frame.minY)
-        let fx = SkillFX(size: screen.frame.size, feet: local, facing: facing)
+        let fx = SkillFX(size: screen.frame.size, feet: local, facing: facing, scale: scale)
         panel.contentView?.layer?.addSublayer(fx.container)
         panel.orderFrontRegardless()
         running += 1
-        skill.cast(fx)
+        cast(fx)
         DispatchQueue.main.asyncAfter(deadline: .now() + fx.end + 0.4) { [weak self] in
             fx.container.removeFromSuperlayer()
             guard let self else { return }
@@ -53,17 +63,23 @@ final class SkillFX {
     let size: CGSize
     let feet: CGPoint
     let facing: CGFloat
+    /// 1 fills the screen; less shrinks everything toward the feet.
+    let scale: CGFloat
     private(set) var end: TimeInterval = 0
 
     var bounds: CGRect { CGRect(origin: .zero, size: size) }
     var body: CGPoint { CGPoint(x: feet.x, y: feet.y + 52) }
     var head: CGPoint { CGPoint(x: feet.x + 2, y: feet.y + 98) }
 
-    init(size: CGSize, feet: CGPoint, facing: CGFloat) {
+    init(size: CGSize, feet: CGPoint, facing: CGFloat, scale: CGFloat) {
         self.size = size
         self.feet = feet
         self.facing = facing
-        container.frame = CGRect(origin: .zero, size: size)
+        self.scale = scale
+        container.bounds = CGRect(origin: .zero, size: size)
+        container.anchorPoint = CGPoint(x: feet.x / size.width, y: feet.y / size.height)
+        container.position = feet
+        container.setAffineTransform(CGAffineTransform(scaleX: scale, y: scale))
     }
 
     // MARK: Plumbing
@@ -138,7 +154,9 @@ final class SkillFX {
 
     // MARK: Primitives
 
+    /// A tint over the whole screen (left out when shrunk, where it would show up as a box).
     func flash(_ color: CGColor, peak: Float = 0.8, duration: TimeInterval = 0.5, delay: TimeInterval = 0) {
+        guard scale == 1 else { return }
         later(delay, lasting: duration) { [self] in
             let layer = CALayer()
             layer.frame = bounds

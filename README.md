@@ -75,9 +75,14 @@ The updater reads the releases of `vfa-khuongdv/MochiMate` (`Updater.repository`
 - A line is a string, or an object to set more: `{ "text": "...", "id": "...", "anim": "drink", "effect": "water", "audio": "audio/vi/kai.vi.water.1.m4a" }`. `anim` is one of the animation names in `SpriteSheet.swift`, `effect` an emote name.
 - Each line has an id: `<character>.<lang>.<kind>.<n>` (n counts from 1), or `shared.<lang>.<kind>.<n>`, unless it sets its own. Inserting a line in the middle renumbers the ones after it, so give lines an explicit `id` once they have audio.
 
-### Audio (TODO)
+### Audio
 
-Voice playback is not implemented yet: `Voice.play` in `Content.swift` is a stub. The plan is pre-recorded TTS files inside the pack, at the line's `audio` path or by default `audio/<lang>/<line id>.m4a`, played at the volume set in Settings.
+Only the reminder lines (water, move, eyes) are voiced, by pre-recorded files in the pack, at the line's `audio` path or by default `audio/<lang>/<line id>.m4a`, played by `Voice.play` at the volume set in Settings. Shared reminder lines would have one file per gender, `<line id>.m.m4a` and `<line id>.f.m4a`. Lines with `{placeholders}` have no audio and are silent.
+
+`scripts/gen-voice.py [vi] [en] [ja]` records them (and skips files that exist, so delete a file to re-record it):
+
+- **vi:** VieNeu-TTS from the Web to EPUB app's TTS install, voice Hải Đăng for male characters and Trúc Ly for female ones.
+- **en, ja:** HyperFrames TTS (Kokoro): am_michael / af_heart for English, jm_kumo / jf_alpha for Japanese. Needs a venv with `kokoro-onnx`, `soundfile` and `pykakasi` (`HYPERFRAMES_PYTHON`, and the python to run the script with; Japanese is converted to hiragana first because Kokoro reads kanji as Chinese) and `brew install espeak-ng` (`PHONEMIZER_ESPEAK_LIBRARY=/opt/homebrew/lib/libespeak-ng.dylib`).
 
 ## Project layout
 
@@ -92,7 +97,7 @@ Sources/
     Pet.swift            Behavior of the character, including how it shows a reminder
     PetWindow.swift      Transparent window that draws the character and its speech bubble
     Characters.swift     The 10 characters and their behavior weights
-    Content.swift        Loads the content pack and picks lines; voice playback stub
+    Content.swift        Loads the content pack and picks lines, plays their voice
     FrontWindow.swift    Frontmost window position and app name
     DesktopIcons.swift   Reads and moves Desktop icons through AppleScript (Finder)
     Updater.swift        App and content updates from GitHub Releases

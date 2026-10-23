@@ -3,8 +3,10 @@
 
 - vi: VieNeu-TTS, "Hải Đăng" for male characters and "Trúc Ly" for female ones. Needs the VieNeu venv that the
   Web to EPUB app installed (VIENEU_PYTHON).
-- en, ja: HyperFrames TTS (Kokoro). Needs a venv with kokoro-onnx + soundfile (HYPERFRAMES_PYTHON) and espeak-ng
+- en, ja: HyperFrames TTS (Kokoro). Needs a venv with kokoro-onnx, soundfile and pykakasi (HYPERFRAMES_PYTHON, also the python to run this script with) and espeak-ng
   (`brew install espeak-ng`).
+
+Only the reminder lines (water, move, eyes) are voiced; everything else stays text.
 
 A line is saved as <line id>.m4a. Shared lines (any character can say them) get one file per gender,
 <line id>.m.m4a and <line id>.f.m4a. Lines with {placeholders} can't be pre-recorded, so they have no audio.
@@ -30,12 +32,25 @@ VOICES = {
     "en": {"m": "am_michael", "f": "af_heart"},
     "ja": {"m": "jm_kumo", "f": "jf_alpha"},
 }
+REMINDER_KINDS = {"water", "move", "eyes"}
 FEMALE = {"rin", "hana", "mei", "yui", "aki"}
 
 
-def spoken(text):
-    """What is read aloud: no emoji, tildes, quotes or other symbols a voice would trip over."""
-    return re.sub(r"\s+", " ", re.sub(r"[✨~〜「」_#=＝+]", " ", text)).strip()
+# Latin words in the Japanese lines, as katakana; the phonemizer would switch to English for them.
+JA_WORDS = {"Comic Sans": "コミックサンス", "Figma": "フィグマ", "Excel": "エクセル", "KPI": "ケーピーアイ", "CSS": "シーエスエス",
+            "JPEG": "ジェイペグ", "PR": "ピーアール", "px": "ピクセル"}
+
+
+def spoken(text, lang):
+    """What is read aloud: no emoji, tildes, quotes or other symbols a voice would trip over. Japanese goes in as
+    hiragana, since Kokoro's phonemizer reads kanji as Chinese."""
+    text = re.sub(r"\s+", " ", re.sub(r"[✨~〜「」_#=＝+]", " ", text)).strip()
+    if lang == "ja":
+        for word, kana in JA_WORDS.items():
+            text = text.replace(word, kana)
+        import pykakasi  # in the HYPERFRAMES_PYTHON venv: run this script with that python
+        text = "".join(part["hira"] for part in pykakasi.kakasi().convert(text))
+    return text
 
 
 def entries(node):
@@ -52,18 +67,20 @@ def build_jobs(only_langs):
             return
         stem = entry.get("id") or f"{owner}.{lang}.{kind}.{n}"
         for g in genders:
-            jobs.append((lang, stem if len(genders) == 1 else f"{stem}.{g}", spoken(entry["text"]), g))
+            jobs.append((lang, stem if len(genders) == 1 else f"{stem}.{g}", spoken(entry["text"], lang), g))
 
     for character, languages in pack["characters"].items():
         gender = "f" if character in FEMALE else "m"
         for lang, kinds in languages.items():
             for kind, lines in kinds.items():
                 for n, entry in entries(lines):
-                    add(lang, character, kind, n, entry, [gender])
+                    if kind in REMINDER_KINDS:
+                        add(lang, character, kind, n, entry, [gender])
     for lang, kinds in pack["shared"].items():
         for kind, lines in kinds.items():
             for n, entry in entries(lines):
-                add(lang, "shared", kind, n, entry, ["m", "f"])
+                if kind in REMINDER_KINDS:
+                    add(lang, "shared", kind, n, entry, ["m", "f"])
     return jobs
 
 

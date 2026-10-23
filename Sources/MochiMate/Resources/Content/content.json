@@ -1,5 +1,5 @@
 {
-  "version": 3,
+  "version": 5,
   "profiles": {
     "kai": {
       "vi": {
@@ -176,7 +176,13 @@
         ],
         "chatter": [
           "Code chạy được thì đừng hỏi tại sao.",
-          "Hôm nay mình sẽ viết test... từ mai."
+          "Hôm nay mình sẽ viết test... từ mai.",
+          "Thứ Hai gì mà dài hơn cả file log production vậy.",
+          "Lương thì tính theo giờ, bug thì xuất hiện đúng giờ ngủ.",
+          "Giá nhà tăng nhanh hơn tốc độ mình học framework mới.",
+          "Ly cà phê thứ tư rồi. Tim mình đang chạy ở chế độ overclock.",
+          "Ai đó bảo 'chỉ sửa nhanh một dòng thôi'. Đã ba tiếng rồi.",
+          "Sống mà không có deadline chắc buồn lắm, nhưng mình muốn thử."
         ],
         "skill1": [
           "Deploy lên production lúc 5 giờ chiều thứ Sáu. Đừng cản mình!"
@@ -217,7 +223,13 @@
         ],
         "chatter": [
           "If the code works, don't ask why.",
-          "I'll write tests today... starting tomorrow."
+          "I'll write tests today... starting tomorrow.",
+          "Why is Monday longer than a production log?",
+          "I get paid by the hour, but bugs show up right at bedtime.",
+          "Rent is rising faster than I can learn new frameworks.",
+          "Fourth coffee. My heart is running in overclock mode.",
+          "'Just a one-line fix,' they said. That was three hours ago.",
+          "Life without deadlines sounds boring, but I'd like to try it."
         ],
         "skill1": [
           "Deploying to production at 5 PM on a Friday. Don't stop me!"
@@ -258,7 +270,13 @@
         ],
         "chatter": [
           "動いてるコードには理由を聞かない。",
-          "今日こそテスト書く…明日から。"
+          "今日こそテスト書く…明日から。",
+          "月曜日って本番ログより長くない？",
+          "給料は時給なのに、バグは寝る直前に出てくる。",
+          "家賃の上がる速度が、新しいフレームワークを覚えるより速い。",
+          "コーヒー4杯目。心臓がオーバークロックしてる。",
+          "「ちょっと1行直すだけ」って言われて、もう3時間。",
+          "締め切りのない人生は退屈そうだけど、一度試してみたい。"
         ],
         "skill1": [
           "金曜の夕方5時に本番デプロイ。止めないで！"
@@ -298,7 +316,13 @@
         ],
         "chatter": [
           "Ai merge thẳng vào main thế kia?!",
-          "Họp mà có thể là một cái email thì ghét lắm."
+          "Họp mà có thể là một cái email thì ghét lắm.",
+          "Họp xong lại họp tiếp, vậy lúc nào mình mới được code?",
+          "Designer bảo 'dịch sang trái 1px'. Mình dịch cả tâm hồn luôn.",
+          "Trời nóng, wifi yếu, deadline gần. Combo hoàn hảo để cáu.",
+          "Bug này chỉ xảy ra trên Safari. Cuộc đời cũng vậy, toàn lỗi ở chỗ không ai test.",
+          "Đi làm về mệt đến mức nấu mì gói cũng thấy là việc lớn.",
+          "Khách hàng nói 'làm giống trang kia nhưng độc đáo hơn'."
         ],
         "skill1": [
           "Code của bạn sẽ được review. Bằng mưa."
@@ -336,7 +360,13 @@
         ],
         "chatter": [
           "Who merged straight into main?!",
-          "I hate meetings that could've been an email."
+          "I hate meetings that could've been an email.",
+          "Meeting after meeting. When am I supposed to code?",
+          "Design says 'move it 1px left'. I'm moving my whole soul.",
+          "Hot weather, weak wifi, close deadline. The perfect recipe for a bad mood.",
+          "This bug only happens on Safari. Life is the same: bugs where nobody tests.",
+          "I'm so tired after work that even instant noodles feel like a project.",
+          "The client wants 'like that other site, but more original'."
         ],
         "skill1": [
           "Your code is getting reviewed. By rain."
@@ -374,7 +404,13 @@
         ],
         "chatter": [
           "誰よ、mainに直接マージしたの！？",
-          "メールで済む会議、ほんと嫌い。"
+          "メールで済む会議、ほんと嫌い。",
+          "会議の次も会議。いつコードを書けばいいの？",
+          "「1px左にずらして」って言われた。魂ごとずらすわ。",
+          "暑いし、Wi-Fiは弱いし、締め切りは近い。機嫌が悪くなる最強セット。",
+          "このバグ、Safariでしか出ない。人生も、誰もテストしない所にバグがある。",
+          "仕事で疲れて、インスタント麺を作るのさえ一大プロジェクト。",
+          "お客さんは「あのサイトみたいで、もっと独創的に」だって。"
         ],
         "skill1": [
           "あなたのコード、レビューします。雨で。"
@@ -414,7 +450,13 @@
         ],
         "chatter": [
           "Còn mấy ngày nữa lương về nhỉ...",
-          "Cuộc họp này lẽ ra chỉ cần một email."
+          "Cuộc họp này lẽ ra chỉ cần một email.",
+          "Tăng ca không lương gọi là 'tinh thần đồng đội'.",
+          "Lương về ví chưa kịp ấm đã phải đóng tiền nhà.",
+          "Chuyến tàu sáng đông đến mức mình tưởng đang đi concert.",
+          "Sếp gửi mail lúc 11 giờ đêm kèm chữ 'không gấp'.",
+          "Excel treo đúng lúc chưa kịp lưu. Mình cũng muốn treo theo.",
+          "Giá cà phê hộp lại tăng. Đến lúc tự pha rồi."
         ],
         "skill1": [
           "Ngày lương về rồi! Hứng lấy đi!"
@@ -452,7 +494,13 @@
         ],
         "chatter": [
           "How many days until payday again...",
-          "This meeting should have been an email."
+          "This meeting should have been an email.",
+          "Unpaid overtime is called 'team spirit'.",
+          "Payday arrives and rent takes it before my wallet even warms up.",
+          "The morning train is so packed I thought I was at a concert.",
+          "The boss emails at 11 p.m. and writes 'no rush'.",
+          "Excel froze right before I saved. I'd like to freeze too.",
+          "Canned coffee got more expensive again. Time to brew my own."
         ],
         "skill1": [
           "It's payday! Catch it all!"
@@ -490,7 +538,13 @@
         ],
         "chatter": [
           "給料日まであと何日だっけ…",
-          "この会議、メールで済んだよね。"
+          "この会議、メールで済んだよね。",
+          "サービス残業のことを「チームワーク」と呼ぶ。",
+          "給料が入っても、財布が温まる前に家賃で消える。",
+          "朝の電車がライブ会場みたいに混んでる。",
+          "上司が夜11時にメール。「急ぎません」付き。",
+          "保存する前にExcelが固まった。私も固まりたい。",
+          "缶コーヒーがまた値上がり。自分で淹れる時が来た。"
         ],
         "skill1": [
           "給料日だー！ぜんぶ受け止めろ！"
@@ -530,7 +584,13 @@
         ],
         "chatter": [
           "Nghe đồn trưa nay có trà sữa miễn phí... chắc là đồn thôi.",
-          "Thứ Hai gì mà dài như thứ Năm vậy..."
+          "Thứ Hai gì mà dài như thứ Năm vậy...",
+          "Máy pha cà phê văn phòng hỏng rồi, tin buồn nhất tuần.",
+          "Giá trà sữa tăng nữa, ví mình khóc thành tiếng.",
+          "Ai ăn hết snack trong ngăn kéo của mình vậy? Mình sẽ điều tra.",
+          "Điều hòa văn phòng lạnh quá, mình mặc áo khoác giữa mùa hè.",
+          "Đang đói mà còn ba tiếng nữa mới tới giờ ăn trưa.",
+          "Ngày mai thứ Hai rồi à? Cuối tuần trôi nhanh như deadline vậy."
         ],
         "skill1": [
           "Tiệc snack mở màn! Ai cũng có phần nha."
@@ -568,7 +628,13 @@
         ],
         "chatter": [
           "I heard there's free bubble tea at lunch... probably just a rumor.",
-          "Why does this Monday feel like a Thursday..."
+          "Why does this Monday feel like a Thursday...",
+          "The office coffee machine is broken. Saddest news of the week.",
+          "Bubble tea got more expensive again. My wallet is crying out loud.",
+          "Who ate the snacks in my drawer? I'm launching an investigation.",
+          "The office AC is so cold I wear a jacket in summer.",
+          "I'm starving and it's still three hours until lunch.",
+          "Tomorrow is Monday already? The weekend flew by like a deadline."
         ],
         "skill1": [
           "Snack party time! There's enough for everyone."
@@ -606,7 +672,13 @@
         ],
         "chatter": [
           "お昼にタピオカ無料ってうわさ…たぶんうわさだけ。",
-          "この月曜日、木曜日くらい長くない？"
+          "この月曜日、木曜日くらい長くない？",
+          "オフィスのコーヒーマシンが壊れた。今週一番悲しいニュース。",
+          "タピオカがまた値上がり。お財布が泣いてる。",
+          "引き出しのおやつ、誰が食べたの？調査を始めます。",
+          "オフィスの冷房が強すぎて、夏なのに上着を着てる。",
+          "お腹ぺこぺこなのに、お昼まであと3時間。",
+          "明日はもう月曜？週末って締め切りみたいに早い。"
         ],
         "skill1": [
           "おやつパーティー開幕！みんなの分あるよ。"
@@ -646,7 +718,13 @@
         ],
         "chatter": [
           "Khách bảo 'làm cho nó pop hơn'. Pop là pop thế nào?",
-          "File final, final2, final_thật_sự... mình đã quá mệt."
+          "File final, final2, final_thật_sự... mình đã quá mệt.",
+          "Khách bảo 'màu này hơi... không có hồn'. Hồn mình mới là thứ không còn.",
+          "Nghệ thuật không trả được tiền thuê nhà, nhưng mình vẫn đi làm.",
+          "Mưa rơi, cà phê nguội, và font chữ sai. Một bài thơ buồn.",
+          "Họ gọi đó là 'chỉnh nhẹ'. Mình gọi đó là làm lại từ đầu.",
+          "Cả thành phố kẹt xe, chỉ có cảm hứng là không chịu đến.",
+          "Cuối tháng rồi, ví mình giống artboard trống."
         ],
         "skill1": [
           "Màu sắc ơi, bùng nổ đi! Đây mới là nghệ thuật."
@@ -684,7 +762,13 @@
         ],
         "chatter": [
           "The client said 'make it pop'. Pop how, exactly?",
-          "final, final2, final_for_real... I'm so tired."
+          "final, final2, final_for_real... I'm so tired.",
+          "The client said 'the color lacks soul'. It's my soul that's missing.",
+          "Art doesn't pay the rent, but I still show up.",
+          "Rain falling, coffee cold, wrong font. A sad poem.",
+          "They call it 'a small tweak'. I call it starting over.",
+          "The whole city is stuck in traffic, only inspiration refuses to arrive.",
+          "End of the month, and my wallet looks like an empty artboard."
         ],
         "skill1": [
           "Colors, explode! This is what art looks like."
@@ -722,7 +806,13 @@
         ],
         "chatter": [
           "「もっとポップに」って言われた。ポップってどういうこと？",
-          "final、final2、本当のfinal…もう疲れた。"
+          "final、final2、本当のfinal…もう疲れた。",
+          "「この色、魂がない」って言われた。魂がないのは僕の方だよ。",
+          "芸術じゃ家賃は払えないけど、それでも出勤する。",
+          "雨、冷めたコーヒー、間違ったフォント。悲しい詩だ。",
+          "「ちょっと直すだけ」って、僕には最初からやり直しのこと。",
+          "街は渋滞なのに、インスピレーションだけが来ない。",
+          "月末。僕の財布は空のアートボードみたいだ。"
         ],
         "skill1": [
           "色よ、はじけろ！これがアートだ。"
@@ -762,7 +852,13 @@
         ],
         "chatter": [
           "Ai đặt màu chữ #FF0000 trên nền #00FF00 vậy trời...",
-          "Thêm chút khoảng trắng là cái gì cũng đẹp lên."
+          "Thêm chút khoảng trắng là cái gì cũng đẹp lên.",
+          "Dev làm lệch 2px mà bảo 'nhìn không ra đâu'. Mình nhìn ra.",
+          "Hết pin lúc đang kéo layer, mất cả buổi sáng. Đau tim thật.",
+          "Giá thuê nhà gần công ty đắt hơn cả bộ font bản quyền.",
+          "Trời mưa, tóc xù, mà còn có buổi họp review lúc 9 giờ.",
+          "Mình đã chọn 12 tông màu pastel nhưng sếp vẫn bảo 'đậm hơn đi'.",
+          "Ngủ ít quá, quầng thâm của mình đã thành một tông màu mới."
         ],
         "skill1": [
           "Cực quang pastel xin chào. Đẹp hơn mọi cái mockup."
@@ -800,7 +896,13 @@
         ],
         "chatter": [
           "Who put #FF0000 text on a #00FF00 background...",
-          "A bit more white space makes everything prettier."
+          "A bit more white space makes everything prettier.",
+          "The dev misaligned it by 2px and said 'nobody will notice'. I noticed.",
+          "My battery died mid-layer drag and I lost a whole morning. Heart attack.",
+          "Rent near the office costs more than a licensed font family.",
+          "It's raining, my hair is a mess, and there's a 9 a.m. review meeting.",
+          "I picked 12 pastel tones and the boss still said 'make it bolder'.",
+          "Too little sleep. My dark circles are now a brand new color."
         ],
         "skill1": [
           "Pastel aurora, hello. Prettier than any mockup."
@@ -838,7 +940,13 @@
         ],
         "chatter": [
           "緑背景に赤文字って誰…",
-          "余白を少し足すと何でもかわいくなるよね。"
+          "余白を少し足すと何でもかわいくなるよね。",
+          "エンジニアが2pxずらして「誰も気づかないよ」って。私は気づく。",
+          "レイヤーを動かしてる最中に電池切れ。午前中が消えた。",
+          "会社の近くの家賃が、ライセンス付きフォントより高い。",
+          "雨で髪はボサボサなのに、朝9時にレビュー会議。",
+          "パステルを12色選んだのに、「もっと濃く」って言われた。",
+          "寝不足で、クマが新しい色になってきた。"
         ],
         "skill1": [
           "パステルオーロラ、こんにちは。どのモックより綺麗。"
@@ -878,7 +986,13 @@
         ],
         "chatter": [
           "Nếu không viral thì là do thuật toán.",
-          "Brainstorm tí: content về uống nước bằng... mèo?"
+          "Brainstorm tí: content về uống nước bằng... mèo?",
+          "KPI tháng này tăng gấp đôi, ngân sách thì giảm một nửa. Toán học của sếp.",
+          "Mình cần nội dung viral, nhưng cả team đang chờ cà phê.",
+          "Thứ Hai: lên kế hoạch. Thứ Ba: đổi kế hoạch. Thứ Tư: quên kế hoạch.",
+          "Xăng lại tăng giá, lượt tương tác thì không chịu tăng.",
+          "Họp 'chỉ 15 phút' mà kéo dài hết buổi chiều.",
+          "Bữa trưa của mình là cái bánh mì kèm deadline."
         ],
         "skill1": [
           "Viral! Viral! Hôm nay bài này phải lên xu hướng!"
@@ -916,7 +1030,13 @@
         ],
         "chatter": [
           "If it didn't go viral, blame the algorithm.",
-          "Quick brainstorm: water-drinking content, but with... cats?"
+          "Quick brainstorm: water-drinking content, but with... cats?",
+          "This month's KPI doubled and the budget got cut in half. The boss's math.",
+          "I need viral content, but the whole team is waiting for coffee.",
+          "Monday: plan. Tuesday: change the plan. Wednesday: forget the plan.",
+          "Gas got more expensive again, but engagement won't go up.",
+          "A 'quick 15-minute' meeting took the whole afternoon.",
+          "My lunch is a sandwich with a side of deadline."
         ],
         "skill1": [
           "Viral! Viral! This post is trending today!"
@@ -954,7 +1074,13 @@
         ],
         "chatter": [
           "バズらなかったらアルゴリズムのせい。",
-          "ブレスト：水を飲むコンテンツ、でも…猫で？"
+          "ブレスト：水を飲むコンテンツ、でも…猫で？",
+          "今月のKPIは2倍、予算は半分。上司の算数。",
+          "バズる企画が必要なのに、チーム全員コーヒー待ち。",
+          "月曜:計画。火曜:計画変更。水曜:計画を忘れる。",
+          "ガソリンはまた値上がりなのに、エンゲージメントは上がらない。",
+          "「15分だけ」の会議が午後ずっと続いた。",
+          "昼ごはんはサンドイッチと締め切り。"
         ],
         "skill1": [
           "バズれ！今日の投稿は絶対トレンド入り！"
@@ -994,7 +1120,13 @@
         ],
         "chatter": [
           "Hôm nay đăng gì đây ta... caption khó nghĩ quá.",
-          "Lịch đăng bài full kín tuần này luôn rồi."
+          "Lịch đăng bài full kín tuần này luôn rồi.",
+          "Lúc nào mình đăng bài thì thuật toán cũng đang ngủ.",
+          "Trời u ám thế này thì chụp ảnh sao lên màu được.",
+          "Ba trăm like mà không ai comment. Cô đơn giữa đám đông.",
+          "Quán cà phê đẹp để chụp ảnh bán view đắt hơn bán cà phê.",
+          "Hết thứ Sáu là hết cảm hứng, mà lịch đăng bài thì vẫn có cuối tuần.",
+          "Điện thoại báo đầy bộ nhớ đúng lúc mình quay xong."
         ],
         "skill1": [
           "Khoan! Góc này đẹp quá. Cười lên, 3, 2, 1!"
@@ -1032,7 +1164,13 @@
         ],
         "chatter": [
           "What should I post today... captions are so hard.",
-          "My content calendar is fully booked this week."
+          "My content calendar is fully booked this week.",
+          "Whenever I post, the algorithm is asleep.",
+          "With a sky this gloomy, how are my photos supposed to look good?",
+          "Three hundred likes and not one comment. Lonely in a crowd.",
+          "The pretty photo cafe charges more for the view than for the coffee.",
+          "Friday ends and so does my inspiration, but the posting calendar doesn't.",
+          "My phone says storage is full right after I finished filming."
         ],
         "skill1": [
           "Wait! This angle is perfect. Smile, 3, 2, 1!"
@@ -1070,7 +1208,13 @@
         ],
         "chatter": [
           "今日は何を投稿しよう…キャプションむずかしい。",
-          "今週の投稿カレンダー、もうパンパン。"
+          "今週の投稿カレンダー、もうパンパン。",
+          "投稿するたびにアルゴリズムが寝てる。",
+          "こんなどんより曇りで、写真が映えるわけないでしょ。",
+          "いいね300なのにコメント0。大勢の中で孤独。",
+          "映えるカフェは、コーヒーより景色の方が高い。",
+          "金曜で気力が尽きるのに、投稿カレンダーは週末もある。",
+          "撮影が終わった瞬間に、スマホの容量がいっぱい。"
         ],
         "skill1": [
           "待って！この角度最高。はいチーズ、3、2、1！"
@@ -1110,7 +1254,13 @@
         ],
         "chatter": [
           "Thêm một tính năng nhỏ thôi... câu nói kinh dị nhất năm.",
-          "Ước tính 2 ngày, thực tế 2 tuần, như mọi khi."
+          "Ước tính 2 ngày, thực tế 2 tuần, như mọi khi.",
+          "Yêu cầu thay đổi lúc 5 giờ chiều thứ Sáu. Cuối tuần của mình cũng thay đổi theo.",
+          "Mình không ghét họp, mình chỉ ghét họp không có agenda.",
+          "Cuộc sống giống như dự án: ai cũng thêm việc, không ai bớt đi.",
+          "Giá cả tăng, ngân sách giữ nguyên, kỳ vọng thì tăng gấp ba.",
+          "Mình đã sync 5 phút. Năm lần liên tiếp.",
+          "Về nhà muộn, bữa tối nguội. Dự án vẫn ổn, báo cáo thế."
         ],
         "skill1": [
           "Mình sync nhanh 5 phút nhé. Chỉ 5 phút thôi, hứa."
@@ -1148,7 +1298,13 @@
         ],
         "chatter": [
           "'Just one tiny feature'... the scariest words of the year.",
-          "Estimated 2 days, took 2 weeks, as always."
+          "Estimated 2 days, took 2 weeks, as always.",
+          "A change request at 5 p.m. on Friday. My weekend just changed too.",
+          "I don't hate meetings, I hate meetings without an agenda.",
+          "Life is like a project: everyone adds work, nobody removes any.",
+          "Prices rise, the budget stays flat, and expectations triple.",
+          "I did the 5-minute sync. Five times in a row.",
+          "Home late, cold dinner. The project is fine, as reported."
         ],
         "skill1": [
           "Quick 5-minute sync? Just five, I promise."
@@ -1186,7 +1342,13 @@
         ],
         "chatter": [
           "「ちょっとした機能追加だけ」…今年一番怖い言葉。",
-          "見積もり2日、実際2週間。いつも通り。"
+          "見積もり2日、実際2週間。いつも通り。",
+          "金曜の夕方5時に変更依頼。私の週末も変更された。",
+          "会議が嫌いなんじゃない。アジェンダのない会議が嫌いなだけ。",
+          "人生はプロジェクトみたい。みんな仕事を足すだけで、誰も減らさない。",
+          "物価は上がり、予算は据え置き、期待は3倍。",
+          "5分だけ同期した。5回連続で。",
+          "帰りが遅くて夕飯は冷めてる。プロジェクトは順調、と報告しておく。"
         ],
         "skill1": [
           "5分だけ軽く同期しよう。本当に5分だけ。"
@@ -1226,7 +1388,13 @@
         ],
         "chatter": [
           "Yêu cầu 'đơn giản thôi' thường không đơn giản chút nào.",
-          "Mình đã viết thêm ba trường hợp ngoại lệ. Chỉ để chắc chắn."
+          "Mình đã viết thêm ba trường hợp ngoại lệ. Chỉ để chắc chắn.",
+          "Yêu cầu viết một dòng, hiểu ra mười cách. Cuộc sống cũng cần acceptance criteria.",
+          "Sáng nay tàu trễ, cà phê đổ, laptop hết pin. Điều kiện chấp nhận: không đạt cái nào.",
+          "Tài liệu đã duyệt xong, rồi khách bảo 'ý em không phải vậy'.",
+          "Giá điện nước lên, nhưng tài liệu yêu cầu thì vẫn dài như cũ.",
+          "Mình đi ngủ lúc hai giờ sáng vì sửa một chữ trong spec.",
+          "Cuộc sống thiếu use case rõ ràng, đặc biệt là thứ Hai."
         ],
         "skill1": [
           "Acceptance criteria: từng mục một, tích hết cho mình."
@@ -1264,7 +1432,13 @@
         ],
         "chatter": [
           "Requirements described as 'simple' never are.",
-          "I added three more edge cases. Just to be sure."
+          "I added three more edge cases. Just to be sure.",
+          "One line of requirement, ten interpretations. Life needs acceptance criteria.",
+          "Late train, spilled coffee, dead laptop this morning. Acceptance criteria: none met.",
+          "The document was approved, then the client said 'that's not what I meant'.",
+          "Utility bills are up, but the requirements doc is as long as ever.",
+          "I went to bed at 2 a.m. over a single word in the spec.",
+          "Life lacks clear use cases, especially on Mondays."
         ],
         "skill1": [
           "Acceptance criteria: one by one, tick them all."
@@ -1302,7 +1476,13 @@
         ],
         "chatter": [
           "「簡単な要件です」が簡単だったためしがない。",
-          "念のため、例外ケースをあと三つ追加しました。"
+          "念のため、例外ケースをあと三つ追加しました。",
+          "要件は1行なのに解釈は10通り。人生にも受け入れ基準がほしい。",
+          "今朝は電車が遅れて、コーヒーをこぼして、ノートPCは電池切れ。受け入れ基準:ゼロ。",
+          "ドキュメントが承認されたのに「そういう意味じゃない」って。",
+          "光熱費は上がるのに、要件定義書は相変わらず長い。",
+          "仕様書の一語を直してたら午前2時になった。",
+          "人生にはユースケースが足りない。特に月曜日。"
         ],
         "skill1": [
           "受け入れ基準を一つずつ、全部チェック。"

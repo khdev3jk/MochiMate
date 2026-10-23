@@ -159,3 +159,72 @@ final class ReminderScheduler {
         CGEventSource.secondsSinceLastEventType(.combinedSessionState, eventType: CGEventType(rawValue: ~0)!)
     }
 }
+
+extension ReminderKind {
+    static let variants = 3
+
+    /// What fills the screen when the reminder is due, so it can't be missed: one of `variants` looks per kind, picked
+    /// at random by the caller. Later call-outs are a lighter pulse.
+    func cast(_ fx: SkillFX, intense: Bool, variant: Int) {
+        let W = fx.size.width, H = fx.size.height
+        let tint: UInt32
+        switch self {
+        case .water: tint = 0x38BDF8
+        case .move: tint = 0xFB923C
+        case .eyes: tint = 0xA78BFA
+        }
+        fx.ring(at: fx.body, color: color(tint), width: 16, duration: 1.1)
+        fx.ring(at: fx.body, color: color(tint), width: 10, duration: 1.1, delay: 0.35)
+        guard intense else {
+            fx.pop(icon, 200, at: CGPoint(x: fx.head.x, y: fx.head.y + 110), hold: 0.8)
+            return
+        }
+        let middle = CGPoint(x: W / 2, y: H / 2), upper = CGPoint(x: W / 2, y: H * 0.56)
+        fx.flash(color(tint), peak: 0.35, duration: 1.2)
+        fx.glow(at: middle, diameter: min(W, H) * 1.3, color: color(tint), duration: 3.5)
+        fx.pop(title, 120, at: CGPoint(x: W / 2, y: H * 0.34), color: .white, hold: 2.0, delay: 0.2)
+
+        switch (self, variant % Self.variants) {
+        // Water: a downpour of drops; a tide rising from the bottom; a fountain.
+        case (.water, 0):
+            fx.rain(["💧", "🥤", "💦"], 100, rate: 14, seconds: 2.6)
+            fx.pop(icon, 380, at: upper, hold: 2.2)
+        case (.water, 1):
+            fx.gradient([color(0x0EA5E9, 0.8), color(0x38BDF8, 0)], frame: CGRect(x: 0, y: 0, width: W, height: H * 0.6),
+                        start: CGPoint(x: 0.5, y: 0), end: CGPoint(x: 0.5, y: 1), duration: 3.2)
+            fx.rise(["🫧", "💧", "🐟"], 90, rate: 14, seconds: 2.6)
+            fx.pop("🥤", 380, at: upper, hold: 2.2)
+        case (.water, _):
+            fx.burst(["💧", "💦", "🫧"], 90, at: CGPoint(x: W / 2, y: 0), rate: 120, seconds: 1.6, velocity: 1500,
+                     longitude: .pi / 2, spread: .pi / 4, gravity: -1100, life: 3.2)
+            fx.pop("🚰", 380, at: upper, hold: 2.2)
+
+        // Move: a stampede of walkers; runners dashing across; a burst of effort.
+        case (.move, 0):
+            fx.rain(["🚶", "💪", "🏃"], 100, rate: 14, seconds: 2.6)
+            fx.pop(icon, 380, at: upper, hold: 2.2)
+        case (.move, 1):
+            for (i, y) in [H * 0.2, H * 0.5, H * 0.8].enumerated() {
+                fx.fly("🏃", 220, from: CGPoint(x: -200, y: y), to: CGPoint(x: W + 200, y: y), duration: 1.6, delay: Double(i) * 0.5,
+                       trail: "💨", trailPx: 100)
+            }
+            fx.pop("💪", 380, at: upper, hold: 2.2, delay: 0.4)
+        case (.move, _):
+            fx.burst(["🔥", "💪", "⚡️", "✨"], 100, at: middle, rate: 140, seconds: 0.8, velocity: 1100, gravity: -500, life: 2.4)
+            fx.ring(at: middle, color: color(tint), width: 22, duration: 1.4, delay: 0.2)
+            fx.pop("🧘", 380, at: upper, hold: 2.2)
+
+        // Eyes: raining eyes; one giant eye with ripples; a view into the distance.
+        case (.eyes, 0):
+            fx.rain(["👀", "✨", "🌙"], 100, rate: 14, seconds: 2.6)
+            fx.pop(icon, 380, at: upper, hold: 2.2)
+        case (.eyes, 1):
+            for i in 0..<4 { fx.ring(at: upper, radius: 60, scale: 14, color: color(tint), width: 12, duration: 1.6, delay: Double(i) * 0.5) }
+            fx.pop("👁️", 420, at: upper, hold: 2.4)
+            fx.rise(["✨", "💫"], 70, rate: 10, seconds: 2.4)
+        case (.eyes, _):
+            fx.rise(["🌿", "☁️", "🦋"], 100, rate: 12, seconds: 2.6, speed: 200)
+            fx.pop("🏞️", 400, at: upper, hold: 2.4)
+        }
+    }
+}
