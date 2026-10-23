@@ -92,7 +92,7 @@ make run
 | `make dmg` | `make app`, then package `build/MochiMate-<VERSION>.dmg` (default `VERSION=1.0.0`). |
 | `make content` | Zip the content pack as `build/mochimate-content-<N>.zip`, N being `version` in content.json. |
 | `make sprites` | Regenerate the sprite sheets only. |
-| `swift test` | Run the tests (content pack completeness, schedule rules, version comparison). |
+| `make test` | Run the unit tests (`swift test`): content packs, schedule and reminder rules, sprite frames and cache, characters, version comparison. |
 
 The app is ad-hoc signed by default; set `SIGN_IDENTITY` to sign with a real certificate (it also keeps the Finder permission between builds).
 

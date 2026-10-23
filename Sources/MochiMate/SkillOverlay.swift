@@ -51,7 +51,10 @@ final class SkillOverlay {
             fx.container.removeFromSuperlayer()
             guard let self else { return }
             self.running -= 1
-            if self.running == 0 { self.panel.orderOut(nil) }
+            if self.running == 0 {
+                self.panel.orderOut(nil)
+                SkillFX.clearGlyphCache()
+            }
         }
     }
 }
@@ -125,7 +128,12 @@ final class SkillFX {
 
     // MARK: Glyphs
 
-    private static var glyphCache: [String: CGImage] = [:]
+    private(set) static var glyphCache: [String: CGImage] = [:]
+
+    /// Drops the bitmaps once no effect is on screen: they are rebuilt in a moment, and kept they add up to ~100 MB.
+    static func clearGlyphCache() { glyphCache.removeAll() }
+    /// Particle sizes are picked from these, not at random: every distinct size is its own cached bitmap.
+    static let particleScales: [CGFloat] = [0.7, 0.85, 1, 1.2]
 
     /// An emoji or short text rendered to a bitmap `px` points tall (wider for long text).
     static func glyph(_ text: String, _ px: CGFloat, color: NSColor? = nil) -> CGImage? {
@@ -303,7 +311,7 @@ final class SkillFX {
         later(delay, lasting: seconds + crossing * 1.3) { [self] in
             let start = CACurrentMediaTime()
             for i in 0..<count {
-                guard let image = Self.glyph(glyphs[i % glyphs.count], px * CGFloat.random(in: 0.7...1.2), color: color) else { continue }
+                guard let image = Self.glyph(glyphs[i % glyphs.count], px * Self.particleScales.randomElement()!, color: color) else { continue }
                 let layer = CALayer()
                 layer.contents = image
                 layer.contentsScale = 2
