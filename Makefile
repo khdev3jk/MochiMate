@@ -5,11 +5,12 @@ DMG     := build/MochiMate-$(VERSION).dmg
 CONTENT := build/mochimate-content-$(CONTENT_VERSION).zip
 STAGE   := build/dmg-stage
 
-.PHONY: help app run dmg content sprites clean
+.PHONY: help app run test dmg content sprites clean
 
 help:
 	@echo "make app       build $(APP) (sprites + release build + ad-hoc signing)"
 	@echo "make run       build and open the app"
+	@echo "make test      run the unit tests"
 	@echo "make dmg       package $(DMG)  (VERSION=x.y.z sets the app version)"
 	@echo "make content   package the dialogue/audio pack as $(CONTENT)"
 	@echo "make sprites   regenerate the sprite sheets only"
@@ -21,6 +22,9 @@ app:
 
 run: app
 	open $(APP)
+
+test:
+	swift test
 
 dmg: app
 	rm -rf $(STAGE) $(DMG)
