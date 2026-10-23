@@ -65,3 +65,21 @@ final class SpriteSheetTests: XCTestCase {
         }
     }
 }
+
+final class SkillGlyphCacheTests: XCTestCase {
+    func testFallingParticlesReuseAFewBitmaps() {
+        SkillFX.clearGlyphCache()
+        let fx = SkillFX(size: CGSize(width: 800, height: 600), feet: .zero, facing: 1, scale: 1)
+        // 200 particles of one glyph used to be 200 differently sized bitmaps.
+        fx.rain(["🧪"], 100, rate: 100, seconds: 2)
+        XCTAssertGreaterThan(SkillFX.glyphCache.count, 0)
+        XCTAssertLessThanOrEqual(SkillFX.glyphCache.count, SkillFX.particleScales.count)
+    }
+
+    func testClearingDropsEveryBitmap() {
+        _ = SkillFX.glyph("🧪", 100)
+        XCTAssertFalse(SkillFX.glyphCache.isEmpty)
+        SkillFX.clearGlyphCache()
+        XCTAssertTrue(SkillFX.glyphCache.isEmpty)
+    }
+}
