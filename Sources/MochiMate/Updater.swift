@@ -12,7 +12,7 @@ final class Updater: ObservableObject {
         case failed(String)
     }
 
-    static let repository = "vfa-khuongdv/MochiMate"
+    static let repository = "khdev3jk/MochiMate"
     private static let releases = URL(string: "https://api.github.com/repos/\(repository)/releases?per_page=30")!
     private static let contentAsset = #/mochimate-content-(\d+)\.zip/#
 

@@ -54,7 +54,16 @@ It stays light: one 30 fps timer, layer-based rendering, and reminders checked e
 
 ## Install
 
-Requirements: macOS 13 or later. Build it from source (see [Build](#build)) with `make run`, or `make dmg` for a disk image to drag into Applications. The app is ad-hoc signed by default, so the first launch may need right-click, **Open**.
+Requirements: macOS 13 or later.
+
+1. Download `MochiMate-<version>.dmg` from [Releases](https://github.com/khdev3jk/MochiMate/releases/latest), open it and drag **MochiMate** into **Applications**.
+2. The app is only ad-hoc signed (not notarized), so on first launch right-click it, choose **Open**, then **Open** again. If macOS says the app is damaged:
+   ```sh
+   xattr -dr com.apple.quarantine /Applications/MochiMate.app
+   ```
+3. To control Finder (only needed for the optional icon kicking), allow it when asked.
+
+Or build it yourself (see [Build](#build)): `make run`, or `make dmg` for a disk image.
 
 ## Usage
 
@@ -83,7 +92,7 @@ The app is ad-hoc signed by default; set `SIGN_IDENTITY` to sign with a real cer
 
 ## Releasing
 
-The updater reads the releases of `vfa-khuongdv/MochiMate` (`Updater.repository`).
+The updater reads the releases of `khdev3jk/MochiMate` (`Updater.repository`).
 
 - **App:** `make dmg VERSION=1.1.0`, then attach the DMG to a release tagged `v1.1.0`. The app offers the update when the tag is newer than its own version.
 - **Content (dialogue and audio):** bump `version` in `Sources/MochiMate/Resources/Content/content.json`, run `make content` and attach `mochimate-content-<N>.zip` to any release (a content-only release works too). Apps whose pack is older download it, check it loads, and install it into `~/Library/Application Support/MochiMate/Content`.
