@@ -5,3 +5,4 @@ build/
 *.dmg
 *.zip
 __pycache__/
+promo/

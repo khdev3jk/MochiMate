@@ -7,7 +7,7 @@
 import AppKit
 
 let frameSize: CGFloat = 128   // points per frame
-let pixelScale: CGFloat = 2    // rendered at 2x for Retina
+let pixelScale: CGFloat = Double(ProcessInfo.processInfo.environment["SPRITE_SCALE"] ?? "").map { CGFloat($0) } ?? 2   // 2x for Retina; SPRITE_SCALE=4 for video
 
 // MARK: - Animations
 
