@@ -2,7 +2,7 @@ import Foundation
 
 /// Labels for the menus, the settings window and alerts; what the characters say lives in the content pack.
 enum UIText {
-    case professionDeveloper, professionOffice, professionDesigner, professionMarketing, professionManager
+    case professionDeveloper, professionOffice, professionDesigner, professionMarketing, professionManager, professionMonk
     case reminderWater, reminderMove, reminderEyes, reminderHint
     case skills, remindNow, pauseReminders, resumeReminders, characters, showCompanion, hideCompanion, settings, quit
     /// "%@" is a time.
@@ -40,6 +40,7 @@ private let uiTexts: [Language: [UIText: String]] = [
         .professionDesigner: "Nhà thiết kế",
         .professionMarketing: "Marketing & Content",
         .professionManager: "PM & BA",
+        .professionMonk: "Tu sĩ",
         .reminderWater: "Uống nước",
         .reminderMove: "Đứng dậy vận động",
         .reminderEyes: "Nghỉ mắt",
@@ -112,6 +113,7 @@ private let uiTexts: [Language: [UIText: String]] = [
         .professionDesigner: "Designer",
         .professionMarketing: "Marketing & Content",
         .professionManager: "PM & BA",
+        .professionMonk: "Monk",
         .reminderWater: "Drink water",
         .reminderMove: "Stand up & move",
         .reminderEyes: "Rest your eyes",
@@ -184,6 +186,7 @@ private let uiTexts: [Language: [UIText: String]] = [
         .professionDesigner: "デザイナー",
         .professionMarketing: "マーケティング",
         .professionManager: "PM・BA",
+        .professionMonk: "お坊さん",
         .reminderWater: "水を飲む",
         .reminderMove: "立って体を動かす",
         .reminderEyes: "目を休める",

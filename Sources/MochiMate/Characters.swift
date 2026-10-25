@@ -1,7 +1,7 @@
 import Foundation
 
 enum Profession: String, CaseIterable {
-    case developer, office, designer, marketing, manager
+    case developer, office, designer, marketing, manager, monk
 
     var title: String {
         switch self {
@@ -10,6 +10,7 @@ enum Profession: String, CaseIterable {
         case .designer: return ui(.professionDesigner)
         case .marketing: return ui(.professionMarketing)
         case .manager: return ui(.professionManager)
+        case .monk: return ui(.professionMonk)
         }
     }
 }
@@ -54,4 +55,8 @@ let allCharacters: [Character] = [
     Character(id: "yui", profession: .marketing, female: true, walkSpeed: 70, weights: weights([.happy: 2.2, .chatter: 2.4])),
     Character(id: "sora", profession: .manager, female: false, walkSpeed: 64, weights: weights([.wander: 6, .work: 2.5])),
     Character(id: "aki", profession: .manager, female: true, walkSpeed: 60, weights: weights([.work: 3, .window: 1.6])),
+    // Tâm, the little monk, walks slowly, sits still a lot and would rather knock the wooden fish than open a laptop.
+    Character(id: "tam", profession: .monk, female: false, walkSpeed: 50, weights: weights([.idle: 4, .work: 0.6, .skill: 2.2])),
+    // Thầy Minh, Tâm's teacher, is even calmer: slow steps, long stillness, never grumbles about work.
+    Character(id: "minh", profession: .monk, female: false, walkSpeed: 45, weights: weights([.idle: 5, .work: 0.4, .bored: 0.5, .chatter: 1, .skill: 2])),
 ]

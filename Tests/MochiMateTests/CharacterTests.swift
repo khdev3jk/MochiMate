@@ -5,7 +5,7 @@ final class CharacterTests: XCTestCase {
     func testCharacterIDsAreUnique() {
         let ids = allCharacters.map(\.id)
         XCTAssertEqual(Set(ids).count, ids.count)
-        XCTAssertEqual(ids.count, 10)
+        XCTAssertEqual(ids.count, 12)
     }
 
     func testLookUpByID() {
@@ -36,6 +36,18 @@ final class CharacterTests: XCTestCase {
         for profession in Profession.allCases {
             XCTAssertEqual(allCharacters.filter { $0.profession == profession }.count, 2, "\(profession)")
         }
+    }
+
+    func testTheMonkKnocksTheWoodenFishAndOffersIncense() {
+        XCTAssertEqual(Skill.all(for: "tam"), [.woodenFish, .incense])
+        XCTAssertEqual(Skill.woodenFish.anim, .knock)
+        XCTAssertEqual(Skill.incense.anim, .pray)
+    }
+
+    func testTheMasterRingsTheBellAndMeditates() {
+        XCTAssertEqual(Skill.all(for: "minh"), [.templeBell, .meditation])
+        XCTAssertEqual(Skill.templeBell.anim, .bell)
+        XCTAssertEqual(Skill.meditation.anim, .meditate)
     }
 
     func testSkillsBelongToTheirCharacterInSlotOrder() {

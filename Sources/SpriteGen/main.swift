@@ -187,6 +187,51 @@ let animations: [Animation] = [
         p.blush = 0.9
         return p
     }),
+    // Tâm's skills. Knocking the wooden fish, seated: raise the mallet, strike (frame 2), rebound.
+    Animation(name: "knock", fps: 6, loop: true, frames: (0..<4).map { i in
+        var p = Pose()
+        p.sitting = true
+        p.mokugyo = true
+        p.armFront = [1.35, 1.05, 0.75, 0.95][i]; p.armBack = 0.5
+        p.bob = i == 2 ? 0.6 : 0
+        p.eyes = .closed; p.mouth = i % 2 == 0 ? .o : .smile
+        p.tilt = 0.05
+        p.blush = 0.8
+        return p
+    }),
+    // Chanting with one palm raised before the chest, eyes closed, swaying a little.
+    Animation(name: "pray", fps: 4, loop: true, frames: (0..<4).map { i in
+        var p = Pose()
+        p.palm = true
+        p.armFront = 2.1; p.armBack = 0.2
+        p.bob = [0, -0.6, -1, -0.6][i]
+        p.tilt = [0.04, 0.02, 0, 0.02][i]
+        p.eyes = .closed; p.mouth = i % 2 == 0 ? .o : .smile
+        p.blush = 0.8
+        return p
+    }),
+    // Thầy Minh's skills. Striking the bowl bell, seated: one slow strike (frame 2), then letting it ring.
+    Animation(name: "bell", fps: 4, loop: true, frames: (0..<6).map { i in
+        var p = Pose()
+        p.sitting = true
+        p.bellBowl = true
+        p.armFront = [1.35, 1.05, 0.75, 0.9, 1.0, 1.1][i]; p.armBack = 0.5
+        p.eyes = i == 2 ? .closed : .happy; p.mouth = .smile
+        p.tilt = i == 2 ? 0.06 : 0.03
+        p.blush = 0.6
+        return p
+    }),
+    // Meditating cross-legged on a lotus seat, hands in the lap, floating gently.
+    Animation(name: "meditate", fps: 3, loop: true, frames: (0..<4).map { i in
+        var p = Pose()
+        p.sitting = true
+        p.lotus = true
+        p.armFront = 0.6; p.armBack = 0.6
+        p.bob = [-8, -10, -11, -10][i]
+        p.eyes = .closed; p.mouth = .smile
+        p.blush = 0.5
+        return p
+    }),
 ]
 
 // MARK: - Render

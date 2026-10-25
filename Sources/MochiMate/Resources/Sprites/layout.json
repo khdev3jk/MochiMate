@@ -4,6 +4,12 @@
     "y" : 122
   },
   "animations" : {
+    "bell" : {
+      "fps" : 4,
+      "frames" : 6,
+      "loop" : true,
+      "row" : 19
+    },
     "bored" : {
       "fps" : 2,
       "frames" : 4,
@@ -51,6 +57,24 @@
       "frames" : 7,
       "loop" : false,
       "row" : 3
+    },
+    "knock" : {
+      "fps" : 6,
+      "frames" : 4,
+      "loop" : true,
+      "row" : 17
+    },
+    "meditate" : {
+      "fps" : 3,
+      "frames" : 4,
+      "loop" : true,
+      "row" : 20
+    },
+    "pray" : {
+      "fps" : 4,
+      "frames" : 4,
+      "loop" : true,
+      "row" : 18
     },
     "run" : {
       "fps" : 16,

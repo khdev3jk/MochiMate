@@ -3,6 +3,7 @@ import AppKit
 enum Anim: String, CaseIterable {
     case idle, walk, run, kick, happy, bored, yawn, sleep, grumpy, dragged, surprised, work, sad
     case wave, drink, stretch, eyerest
+    case knock, pray, bell, meditate
 }
 
 enum Effect: String, CaseIterable {

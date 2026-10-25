@@ -38,17 +38,18 @@ Everything is set in the menu and in Settings (here in English; Vietnamese and J
 
 ## Features
 
-- **10 characters, 5 professions, one man and one woman each**, each with its own look, personality and lines:
+- **12 characters: 5 professions with one man and one woman each, plus two monks**, each with its own look, personality and lines:
   - Names are localized: e.g. Kai is Khải (vi), Ethan (en), カイ (ja); the ids stay `kai`, `rin`, …
   - Software Developer: Kai, Rin
   - Office Worker: Taro, Hana
   - Designer: Leo, Mei
   - Marketing & Content Creator: Ken, Yui
   - Project Manager & Business Analyst: Sora, Aki
+  - Monks: little Tâm, who keeps time on the wooden fish while chanting and offers incense, and his teacher Thầy Minh, who rings the temple bell and meditates on a lotus
 - **Health reminders:** water (every 45 min), move (60 min), eye rest (20 min, the 20-20-20 rule) by default, each with its own interval. When one is due the character runs to the bottom of the screen near your cursor, the screen fills with a full-screen effect (three looks per reminder, picked at random), the character acts it out (drinks, stretches, does eye exercises) and says a line. Click the character when you've done it; right-click to snooze 10/30 minutes or skip.
 - **Spoken reminders:** most reminder lines have pre-recorded voices in English, Japanese and Vietnamese (a male and a female voice each), played at the volume set in Settings.
 - **Lives on the Desktop:** walks and runs around, across every screen; works on a laptop, gets bored, yawns, falls asleep, and complains now and then about work and life. Click it, drag it, poke it too often and it gets grumpy.
-- **2 skills per character (20 in all):** effects around the character (rocket launch, code rain, payday rain, approval stamp, aurora, radar…) with a line of dialogue. Cast now and then on their own, or from the **Skills** submenu in the menu bar and the right-click menu.
+- **2 skills per character (24 in all):** effects around the character (rocket launch, code rain, payday rain, approval stamp, aurora, radar…) with a line of dialogue. Cast now and then on their own, or from the **Skills** submenu in the menu bar and the right-click menu.
 - **Plays around (opt-in):** perches on top of the window you're using and teases the app by name, and kicks Desktop icons around (needs permission to control Finder; off by default).
 - **Schedule:** reminders only during work hours (days and times), none during quiet hours (lunch break by default), and a pause for 15 min to the rest of the day. Countdowns stand still outside those times, and being away from the Mac for 5+ minutes counts as a break.
 - **Launch at login:** one switch in Settings.
@@ -116,7 +117,7 @@ The updater reads the releases of `khdev3jk/MochiMate` (`Updater.repository`).
 }
 ```
 
-- Characters: `kai rin taro hana leo mei ken yui sora aki`. Languages: `vi en ja`.
+- Characters: `kai rin taro hana leo mei ken yui sora aki tam minh`. Languages: `vi en ja`.
 - Kinds: `water move eyes` (reminders), `thanks snoozed ignored` (answers to a reminder), `hello click poke wake bored sleepy kick window chatter endOfDay`.
 - Placeholders: `{minutes}` (the reminder's interval), `{app}` (the frontmost app, for `window`), `{name}` (the character).
 - A line is a string, or an object to set more: `{ "text": "...", "id": "...", "anim": "drink", "effect": "water", "audio": "audio/vi/kai.vi.water.1.m4a" }`. `anim` is one of the animation names in `SpriteSheet.swift`, `effect` an emote name.
@@ -143,7 +144,7 @@ Sources/
     Reminders.swift      Reminder kinds and the scheduler
     Pet.swift            Behavior of the character, including how it shows a reminder
     PetWindow.swift      Transparent window that draws the character and its speech bubble
-    Characters.swift     The 10 characters and their behavior weights
+    Characters.swift     The 12 characters and their behavior weights
     Content.swift        Loads the content pack and picks lines, plays their voice
     FrontWindow.swift    Frontmost window position and app name
     DesktopIcons.swift   Reads and moves Desktop icons through AppleScript (Finder)

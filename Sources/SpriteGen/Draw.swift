@@ -38,6 +38,14 @@ struct Pose {
     var laptop = false
     /// A glass of water in the front hand.
     var cup = false
+    /// A wooden fish (mõ) on the floor and a mallet in the front hand.
+    var mokugyo = false
+    /// A bowl bell (chuông gia trì) on the floor and a striker in the front hand.
+    var bellBowl = false
+    /// Sitting on a lotus seat.
+    var lotus = false
+    /// The front hand held up as an upright palm, as when chanting.
+    var palm = false
 }
 
 // MARK: - CGContext helpers
