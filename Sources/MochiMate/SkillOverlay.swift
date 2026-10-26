@@ -38,11 +38,11 @@ final class SkillOverlay {
         play(feet: feet, facing: facing, scale: 1) { reminder.cast($0, intense: intense, variant: variant) }
     }
 
-    private func play(feet: CGPoint, facing: CGFloat, scale: CGFloat, _ cast: (SkillFX) -> Void) {
+    private func play(feet: CGPoint, facing: CGFloat, scale: CGFloat, stretch: Double = 1, _ cast: (SkillFX) -> Void) {
         let screen = NSScreen.screens.first { $0.frame.contains(feet) } ?? NSScreen.main ?? NSScreen.screens[0]
         panel.setFrame(screen.frame, display: false)
         let local = CGPoint(x: feet.x - screen.frame.minX, y: feet.y - screen.frame.minY)
-        let fx = SkillFX(size: screen.frame.size, feet: local, facing: facing, scale: scale)
+        let fx = SkillFX(size: screen.frame.size, feet: local, facing: facing, scale: scale, stretch: stretch)
         panel.contentView?.layer?.addSublayer(fx.container)
         panel.orderFrontRegardless()
         running += 1
@@ -68,17 +68,21 @@ final class SkillFX {
     let facing: CGFloat
     /// 1 fills the screen; less shrinks everything toward the feet.
     let scale: CGFloat
+    /// Effects are timed in design seconds; everything runs `stretch` times slower (Core Animation through the container's speed).
+    let stretch: Double
     private(set) var end: TimeInterval = 0
 
     var bounds: CGRect { CGRect(origin: .zero, size: size) }
     var body: CGPoint { CGPoint(x: feet.x, y: feet.y + 52) }
     var head: CGPoint { CGPoint(x: feet.x + 2, y: feet.y + 98) }
 
-    init(size: CGSize, feet: CGPoint, facing: CGFloat, scale: CGFloat) {
+    init(size: CGSize, feet: CGPoint, facing: CGFloat, scale: CGFloat, stretch: Double = 1) {
         self.size = size
         self.feet = feet
         self.facing = facing
         self.scale = scale
+        self.stretch = stretch
+        container.speed = Float(1 / stretch)
         container.bounds = CGRect(origin: .zero, size: size)
         container.anchorPoint = CGPoint(x: feet.x / size.width, y: feet.y / size.height)
         container.position = feet
@@ -88,14 +92,14 @@ final class SkillFX {
     // MARK: Plumbing
 
     private func later(_ delay: TimeInterval, lasting: TimeInterval, _ build: @escaping () -> Void) {
-        end = max(end, delay + lasting)
+        end = max(end, (delay + lasting) * stretch)
         let run = {
             CATransaction.begin()
             CATransaction.setDisableActions(true)
             build()
             CATransaction.commit()
         }
-        if delay > 0 { DispatchQueue.main.asyncAfter(deadline: .now() + delay, execute: run) } else { run() }
+        if delay > 0 { DispatchQueue.main.asyncAfter(deadline: .now() + delay * stretch, execute: run) } else { run() }
     }
 
     private func keyframes(_ keyPath: String, _ values: [Any], times: [NSNumber]? = nil, duration: TimeInterval) -> CAKeyframeAnimation {
@@ -262,7 +266,7 @@ final class SkillFX {
                 container.addSublayer(emitter)
                 emitter.add(basic("emitterPosition", NSValue(point: from), NSValue(point: to), duration: duration, ease: .easeIn),
                             forKey: "trail")
-                DispatchQueue.main.asyncAfter(deadline: .now() + duration) { emitter.birthRate = 0 }
+                DispatchQueue.main.asyncAfter(deadline: .now() + duration * stretch) { emitter.birthRate = 0 }
             }
         }
     }
@@ -289,7 +293,7 @@ final class SkillFX {
             emitter.emitterSize = extent
             emitter.emitterCells = cells
             container.addSublayer(emitter)
-            DispatchQueue.main.asyncAfter(deadline: .now() + seconds) { emitter.birthRate = 0 }
+            DispatchQueue.main.asyncAfter(deadline: .now() + seconds * stretch) { emitter.birthRate = 0 }
         }
     }
 
@@ -309,7 +313,7 @@ final class SkillFX {
                        color: NSColor?, delay: TimeInterval) {
         let crossing = TimeInterval((size.height + 2 * px) / speed)
         later(delay, lasting: seconds + crossing * 1.3) { [self] in
-            let start = CACurrentMediaTime()
+            let start = container.convertTime(CACurrentMediaTime(), from: nil)
             for i in 0..<count {
                 guard let image = Self.glyph(glyphs[i % glyphs.count], px * Self.particleScales.randomElement()!, color: color) else { continue }
                 let layer = CALayer()

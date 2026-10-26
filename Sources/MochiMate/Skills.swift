@@ -13,14 +13,16 @@ enum Skill: String, CaseIterable {
     case selfieFlash, liveStream        // Yui
     case quickSync, scopeShield         // Sora
     case checklist, radar               // Aki
+    case woodenFish, incense            // Tâm
+    case templeBell, meditation         // Thầy Minh
 
-    /// How long the character holds the pose while the effect plays.
-    static let duration: TimeInterval = 3
+    /// How long the character holds the pose while the effect plays: the monks' effects are timed for 10 s, everyone else's for 3 s.
+    var duration: TimeInterval { characterID == "tam" || characterID == "minh" ? 10 : 3 }
 
     static func all(for characterID: String) -> [Skill] { allCases.filter { $0.characterID == characterID } }
 
     var characterID: String {
-        let ids = ["kai", "rin", "taro", "hana", "leo", "mei", "ken", "yui", "sora", "aki"]
+        let ids = ["kai", "rin", "taro", "hana", "leo", "mei", "ken", "yui", "sora", "aki", "tam", "minh"]
         return ids[Skill.allCases.firstIndex(of: self)! / 2]
     }
 
@@ -33,6 +35,10 @@ enum Skill: String, CaseIterable {
         case .deploy, .goViral, .megaphone, .quickSync: return .wave
         case .bugSquash, .refactorBeam, .codeRain, .scopeShield: return .kick
         case .pastelAurora, .biggerLogo: return .stretch
+        case .woodenFish: return .knock
+        case .incense: return .pray
+        case .templeBell: return .bell
+        case .meditation: return .meditate
         default: return .happy
         }
     }
@@ -47,6 +53,7 @@ private let skillNames: [Language: [Skill: String]] = [
         .colorSplash: "Tung Màu", .biggerLogo: "Logo To Thêm Nữa", .pastelAurora: "Cực Quang Pastel", .pixelGrid: "Pixel Perfect",
         .goViral: "Lên Xu Hướng", .megaphone: "Loa Phóng Thanh", .selfieFlash: "Flash Selfie", .liveStream: "Livestream Thả Tim",
         .quickSync: "Sync 5 Phút", .scopeShield: "Khiên Chống Scope Creep", .checklist: "Acceptance Criteria", .radar: "Radar Yêu Cầu",
+        .woodenFish: "Gõ Mõ Tụng Kinh", .incense: "Thắp Hương", .templeBell: "Thỉnh Chuông", .meditation: "Thiền Định",
     ],
     .en: [
         .deploy: "Deploy Rocket", .bugSquash: "Bug Squash", .codeRain: "Code Rain", .refactorBeam: "Refactor Beam",
@@ -54,6 +61,7 @@ private let skillNames: [Language: [Skill: String]] = [
         .colorSplash: "Color Splash", .biggerLogo: "Make It Bigger", .pastelAurora: "Pastel Aurora", .pixelGrid: "Pixel Perfect",
         .goViral: "Go Viral", .megaphone: "Megaphone Blast", .selfieFlash: "Selfie Flash", .liveStream: "Live Stream",
         .quickSync: "Quick Sync", .scopeShield: "Scope Shield", .checklist: "Acceptance Criteria", .radar: "Requirements Radar",
+        .woodenFish: "Chant & Wooden Fish", .incense: "Offer Incense", .templeBell: "Temple Bell", .meditation: "Meditation",
     ],
     .ja: [
         .deploy: "デプロイ・ロケット", .bugSquash: "バグ退治", .codeRain: "コードの雨", .refactorBeam: "リファクタビーム",
@@ -61,6 +69,7 @@ private let skillNames: [Language: [Skill: String]] = [
         .colorSplash: "カラースプラッシュ", .biggerLogo: "ロゴもっと大きく", .pastelAurora: "パステルオーロラ", .pixelGrid: "ピクセルパーフェクト",
         .goViral: "バズ爆発", .megaphone: "メガホンブラスト", .selfieFlash: "自撮りフラッシュ", .liveStream: "ライブ配信",
         .quickSync: "5分シンク", .scopeShield: "スコープシールド", .checklist: "受け入れ基準", .radar: "要件レーダー",
+        .woodenFish: "木魚と読経", .incense: "お焼香", .templeBell: "鐘の音", .meditation: "坐禅",
     ],
 ]
 
@@ -262,6 +271,80 @@ extension Skill {
                 let a = CGFloat.random(in: 0..<(2 * .pi)), d = CGFloat.random(in: 0.3...0.9) * r
                 fx.pop("📌", 100, at: CGPoint(x: c.x + cos(a) * d, y: c.y + sin(a) * d), hold: 0.8, delay: 0.5 + Double(i) * 0.5)
             }
+
+        // Tâm: the wooden fish keeps time with the chanting, one knock per strike frame, each adding a little merit (the last one makes it boundless); then offering incense with palms joined.
+        case .woodenFish:
+            let fish = CGPoint(x: fx.feet.x + f * 60, y: fx.feet.y + 30)
+            let merit = Self.say(vi: "Công đức +1", en: "Merit +1", ja: "功徳+1")
+            fx.glow(at: c, diameter: 800, color: color(0xF5C451), duration: 10)
+            // Slowly turning rays of light behind Tâm, and the opening of the Great Compassion Mantra.
+            let r = min(W, H) * 0.55
+            fx.gradient((0..<16).map { color(0xFFD27A, $0 % 2 == 0 ? 0 : 0.45) }, frame: CGRect(x: c.x - r, y: c.y - r, width: r * 2, height: r * 2),
+                        start: CGPoint(x: 0.5, y: 0.5), end: CGPoint(x: 0.5, y: 0), peak: 0.8, duration: 10) { layer in
+                layer.type = .conic
+                let mask = CAShapeLayer()
+                mask.path = CGPath(ellipseIn: layer.bounds, transform: nil)
+                layer.mask = mask
+                layer.add(CABasicAnimation.grow("transform.rotation.z", from: 0, to: -0.5 * Double.pi, duration: 10), forKey: "turn")
+            }
+            fx.pop(Self.say(vi: "Nam mô hắc ra đát na đa ra dạ da", en: "Namo ratna-trayāya", ja: "ナムカラタンノー トラヤーヤー"), 80,
+                   at: CGPoint(x: W / 2, y: min(H - 120, c.y + 480)), color: NSColor(srgbRed: 1, green: 0.85, blue: 0.4, alpha: 1), hold: 8, delay: 0.3)
+            // In step with the strike frame of the knock animation (frame 2 at 6 fps, every 4 frames).
+            let knocks = 14
+            for i in 0..<knocks {
+                let t = 2.0 / 6 + Double(i) * 4 / 6
+                fx.ring(at: fish, radius: 30, scale: 14, color: color(0xF5C451), width: 10, duration: 1.1, delay: t)
+                if i < knocks - 1 {
+                    fx.pop(merit, 90, at: CGPoint(x: c.x + f * CGFloat(i % 2 == 0 ? 220 : 120), y: c.y + 160 + CGFloat(i % 4) * 90),
+                           color: NSColor(srgbRed: 1, green: 0.82, blue: 0.3, alpha: 1), hold: 0.5, delay: t)
+                } else {
+                    // The last knock: all that merit adds up.
+                    fx.pop(Self.say(vi: "Công đức vô lượng", en: "Boundless merit", ja: "功徳無量"), 130,
+                           at: CGPoint(x: W / 2, y: min(H - 120, c.y + 330)), color: NSColor(srgbRed: 1, green: 0.85, blue: 0.3, alpha: 1), hold: 0.6, delay: t)
+                }
+            }
+        case .incense:
+            let bowl = CGPoint(x: fx.feet.x + f * 60, y: fx.feet.y + 30)
+            fx.glow(at: c, diameter: 700, color: color(0xFFD27A), duration: 9.8)
+            // A small bowl with three sticks, their tips glowing and the smoke curling up.
+            fx.shape(CGPath(ellipseIn: CGRect(x: bowl.x - 22, y: bowl.y - 10, width: 44, height: 16), transform: nil),
+                     fill: color(0x8A5A1A), stroke: color(0x4A2E0C), width: 3, duration: 9.8)
+            for (i, dx) in [-10.0, 0.0, 10.0].enumerated() {
+                let base = CGPoint(x: bowl.x + CGFloat(dx), y: bowl.y), tip = CGPoint(x: base.x + CGFloat(dx) * 0.2, y: base.y + 80)
+                let stick = CGMutablePath()
+                stick.move(to: base); stick.addLine(to: tip)
+                fx.shape(stick, stroke: color(0xB0492A), width: 4, duration: 9.8)
+                fx.glow(at: tip, diameter: 36, color: color(0xFF7A2A), duration: 9.6, delay: 0.1)
+                fx.burst(["☁️"], 50, at: tip, rate: 5, seconds: 9, velocity: 90, longitude: .pi / 2, spread: 0.35, gravity: 25,
+                         life: 3, delay: 0.3 + Double(i) * 0.15)
+            }
+            fx.pop(Self.say(vi: "A Di Đà Phật", en: "Amitabha", ja: "南無阿弥陀仏"), 80,
+                   at: CGPoint(x: c.x, y: c.y + 330), color: NSColor(srgbRed: 1, green: 0.85, blue: 0.4, alpha: 1), hold: 8, delay: 0.4)
+
+        // Thầy Minh: one strike of the bell carries across the whole screen; meditation stills everything.
+        case .templeBell:
+            let bell = CGPoint(x: fx.feet.x + f * 60, y: fx.feet.y + 30)
+            // The strike frame of the bell animation is frame 2 at 4 fps; it repeats every 1.5 s.
+            for strike in [0.5, 2.0, 3.5, 5.0, 6.5] {
+                fx.flash(color(0xFFE08A), peak: 0.2, duration: 0.6, delay: strike)
+                for i in 0..<4 {
+                    fx.ring(at: bell, radius: 40, scale: 30, color: color(0xE0B040), width: 10, duration: 2.2, delay: strike + Double(i) * 0.3)
+                }
+            }
+            fx.pop("🔔", 260, at: CGPoint(x: c.x, y: c.y + 280), tilt: 0.15, hold: 8, delay: 0.4)
+            for (i, strike) in [0.5, 2.0, 3.5, 5.0, 6.5].enumerated() {
+                fx.pop(Self.say(vi: "Boong...", en: "Dong...", ja: "ゴーン…"), 120, at: CGPoint(x: c.x - f * CGFloat(i % 2 == 0 ? 260 : 160), y: c.y + 200 + CGFloat(i % 3) * 70),
+                       color: NSColor(srgbRed: 1, green: 0.85, blue: 0.4, alpha: 1), hold: 0.9, delay: strike)
+            }
+        case .meditation:
+            fx.flash(color(0x0B1A3A), peak: 0.35, duration: 10)
+            fx.glow(at: c, diameter: min(W, H) * 1.2, color: color(0x9AD8FF), duration: 10)
+            for i in 0..<6 {
+                fx.ring(at: c, radius: 80, scale: 9, color: color(0xBFE6FF, 0.8), width: 6, duration: 2.6, delay: 0.2 + Double(i) * 1.4)
+            }
+            fx.pop(Self.say(vi: "Thở vào, tâm tĩnh lặng. Thở ra, mỉm cười.", en: "Breathing in, I calm my mind. Breathing out, I smile.",
+                            ja: "息を吸って、心静かに。息を吐いて、ほほえむ。"), 64,
+                   at: CGPoint(x: W / 2, y: min(H - 120, c.y + 420)), color: .white, hold: 8, delay: 0.4)
         }
     }
 

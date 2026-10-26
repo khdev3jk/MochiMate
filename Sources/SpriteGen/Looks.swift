@@ -1,11 +1,11 @@
 import AppKit
 
-// The ten office workers: one man and one woman for each of the five professions,
+// The ten office workers (one man and one woman for each of the five professions) and two monks,
 // built from the same skeleton so all sheets share identical animation rows.
 
-enum HairStyle { case short, spiky, bob, ponytail, buns, long }
-enum Outfit { case hoodie, suit, shirt, cardigan, turtleneck, blazer }
-enum Accessory { case glasses, headphones, beret, lanyard, starClip, pencil }
+enum HairStyle { case short, spiky, bob, ponytail, buns, long, bald }
+enum Outfit { case hoodie, suit, shirt, cardigan, turtleneck, blazer, robe, kasaya }
+enum Accessory { case glasses, headphones, beret, lanyard, starClip, pencil, beads }
 
 struct Look {
     let id: String
@@ -28,6 +28,8 @@ struct Look {
     var accent = rgb(0xE3B341)     // small details: hoodie strings, laptop logo, clips, paint
     var restingLid: CGFloat = 0     // how much the upper lid covers the eye at rest
     var extras: [Accessory] = []
+    /// Body size relative to the others (a child is smaller).
+    var scale: CGFloat = 1
 }
 
 let looks: [Look] = [
@@ -91,6 +93,20 @@ let looks: [Look] = [
          iris: rgb(0x6A7480), irisDark: rgb(0x2E343C), irisLight: rgb(0xB0B8C4),
          style: .long, outfit: .blazer, top: rgb(0x5A6070), topDark: rgb(0x3E4350),
          skirt: rgb(0x3E4350), shoe: rgb(0x1E1E24), sock: rgb(0x2A2A30), restingLid: 0.2, extras: [.glasses]),
+
+    // A little monk (sa di): smaller than the others, fully shaved head, brown robe (áo tràng), prayer beads, bare feet in sandals.
+    Look(id: "tam",
+         hair: rgb(0x3A3030), hairDark: rgb(0x221A1A), hairLight: rgb(0x6A5A5A),
+         iris: rgb(0x5A3A22), irisDark: rgb(0x2A180A), irisLight: rgb(0xC09070),
+         style: .bald, outfit: .robe, top: rgb(0xA87A50), topDark: rgb(0x80583A), shirt: rgb(0xE8D8BC),
+         trousers: rgb(0x80583A), shoe: rgb(0x6A4428), sock: rgb(0xFFE6D6), accent: rgb(0x7A3A1E), extras: [.beads], scale: 0.86),
+    // Tâm's teacher: fully shaved head, kind half-closed eyes, a saffron kasaya draped over one shoulder.
+    Look(id: "minh", skin: rgb(0xF8DCC4), skinShade: rgb(0xE8BCA0),
+         hair: rgb(0x5A5A5A), hairDark: rgb(0x3A3A3A), hairLight: rgb(0x8A8A8A),
+         iris: rgb(0x4A3020), irisDark: rgb(0x22140A), irisLight: rgb(0xB08A6A),
+         style: .bald, outfit: .kasaya, top: rgb(0xF0B048), topDark: rgb(0xC8862A), shirt: rgb(0xF6E2B8),
+         trousers: rgb(0xC8862A), shoe: rgb(0x5A3A22), sock: rgb(0xF8DCC4), accent: rgb(0xA0521E), restingLid: 0.15,
+         extras: [.beads]),
 ]
 
 // MARK: - Character
@@ -100,11 +116,13 @@ let feet = CGPoint(x: 64, y: 122)
 func drawCharacter(_ ctx: CGContext, _ pose: Pose, _ look: Look) {
     ctx.saveGState()
     ctx.translateBy(x: feet.x, y: feet.y)
+    ctx.scaleBy(x: look.scale, y: look.scale)
 
     // Ground shadow (does not bob).
     ctx.fillEllipse(.zero, 22, 4.5, rgb(0x000000, 0.18))
 
     ctx.translateBy(x: 0, y: pose.bob + (pose.sitting ? 15 : 0))
+    if pose.lotus { drawLotusSeat(ctx) }
     ctx.rotate(by: pose.lean)
 
     let head = CGPoint(x: 0, y: -76)
@@ -127,10 +145,11 @@ func drawCharacter(_ ctx: CGContext, _ pose: Pose, _ look: Look) {
         }
     }
 
-    func arm(_ x: CGFloat, _ angle: CGFloat, dark: Bool) -> CGPoint {
+    func arm(_ x: CGFloat, _ angle: CGFloat, dark: Bool, palm: Bool = false) -> CGPoint {
         limb(ctx, from: CGPoint(x: x, y: -44), angle: angle, length: 15, width: 5,
              color: dark ? look.topDark : look.top) { hand in
-            ctx.fill({ $0.addEllipse(in: CGRect(x: hand.x - 3.4, y: hand.y - 3.4, width: 6.8, height: 6.8)) },
+            let size = palm ? CGSize(width: 5.6, height: 10) : CGSize(width: 6.8, height: 6.8)
+            ctx.fill({ $0.addEllipse(in: CGRect(x: hand.x - size.width / 2, y: hand.y - size.height + 3.4, width: size.width, height: size.height)) },
                      dark ? look.skinShade : look.skin, outlineWidth: 1.2)
         }
     }
@@ -151,7 +170,10 @@ func drawCharacter(_ ctx: CGContext, _ pose: Pose, _ look: Look) {
         for extra in look.extras where extra != .glasses { drawExtra(ctx, extra, look, head) }
     }
 
-    let hand = arm(9, pose.armFront, dark: false)
+    if pose.mokugyo { drawWoodenFish(ctx) }
+    if pose.bellBowl { drawBellBowl(ctx) }
+    let hand = arm(9, pose.armFront, dark: false, palm: pose.palm)
+    if pose.mokugyo || pose.bellBowl { drawMallet(ctx, at: hand, angle: 0.35 - (pose.armFront - 0.75) * 1.6) }
     if pose.cup { drawCup(ctx, at: hand, tilt: -max(0, pose.armFront - 1.2) * 0.9) }
     if pose.laptop { drawLaptop(ctx, look) }
     if pose.sweat { drawDrop(ctx, at: CGPoint(x: -25, y: head.y - 14), size: 1) }
@@ -186,7 +208,7 @@ func drawLongHair(_ ctx: CGContext, _ look: Look, _ h: CGPoint, swing: CGFloat, 
                        control2: CGPoint(x: top.x - 4, y: top.y + 16))
             p.closeSubpath()
         }, look.hair)
-    case .short, .spiky, .bob, .buns:
+    case .short, .spiky, .bob, .buns, .bald:
         break
     }
 }
@@ -224,13 +246,35 @@ func drawHairCap(_ ctx: CGContext, _ look: Look, _ h: CGPoint) {
                              [look.hair, look.hairDark], from: h.y - 38, to: h.y - 18)
         }
         ctx.fill({ $0.addEllipse(in: CGRect(x: h.x - 31, y: h.y - 31, width: 62, height: 56)) }, look.hairDark)
+    case .bald:
+        break   // the scalp is the skin, see drawShavedHead
     }
+}
+
+/// A freshly shaved scalp, nothing left on top (a novice is shaved just like his teacher).
+func drawShavedHead(_ ctx: CGContext, _ look: Look, _ h: CGPoint) {
+    ctx.saveGState()
+    ctx.addEllipse(in: CGRect(x: h.x - 27, y: h.y - 25, width: 54, height: 50)); ctx.clip()
+    ctx.fillGradient({ p in
+        p.move(to: CGPoint(x: h.x - 30, y: h.y - 2))
+        p.addCurve(to: CGPoint(x: h.x + 30, y: h.y - 2),
+                   control1: CGPoint(x: h.x - 30, y: h.y - 34), control2: CGPoint(x: h.x + 30, y: h.y - 34))
+        p.addQuadCurve(to: CGPoint(x: h.x - 30, y: h.y - 2), control: CGPoint(x: h.x, y: h.y - 14))
+    }, [look.hairLight.copy(alpha: 0.35)!, look.hairLight.copy(alpha: 0.08)!], from: h.y - 26, to: h.y - 4, outlineWidth: 0)
+    ctx.restoreGState()
+    // Shine.
+    ctx.stroke({ p in
+        p.addArc(center: CGPoint(x: h.x - 4, y: h.y - 4), radius: 18, startAngle: .pi * 1.2, endAngle: .pi * 1.36, clockwise: false)
+    }, rgb(0xFFFFFF, 0.7), 2.6)
 }
 
 /// Fringe over the forehead. Tips are listed right-to-left relative to the head center.
 func drawBangs(_ ctx: CGContext, _ look: Look, _ h: CGPoint) {
     let tips: [(CGFloat, CGFloat)]
     switch look.style {
+    case .bald:
+        drawShavedHead(ctx, look, h)
+        return
     case .short:
         // Neat cut swept to one side.
         tips = [(27, 2), (23, -6), (17, -12), (10, -15), (3, -14), (-4, -10), (-9, -14), (-15, -10), (-21, -4), (-27, 2)]
@@ -327,7 +371,7 @@ func drawExtra(_ ctx: CGContext, _ extra: Accessory, _ look: Look, _ h: CGPoint)
         }, rgb(0xF2D3B0), outlineWidth: 1)
         ctx.fill({ $0.addRect(CGRect(x: -2.5, y: -16, width: 5, height: 3)) }, rgb(0xFF8FA3), outlineWidth: 1)
         ctx.restoreGState()
-    case .lanyard:
+    case .lanyard, .beads:
         break   // drawn with the outfit, see drawOutfit
     }
 }
@@ -348,6 +392,56 @@ func drawCup(_ ctx: CGContext, at hand: CGPoint, tilt: CGFloat) {
     ctx.restoreGState()
 }
 
+/// A wooden fish (mõ) on the floor in front of the character, with its carved mouth facing us.
+func drawWoodenFish(_ ctx: CGContext) {
+    let c = CGPoint(x: 27, y: -22)
+    ctx.fillGradient({ $0.addEllipse(in: CGRect(x: c.x - 10, y: c.y - 8, width: 20, height: 15)) },
+                     [rgb(0xD0703A), rgb(0x8A3A1C)], from: c.y - 8, to: c.y + 7, outlineWidth: 1.4)
+    ctx.stroke({ p in
+        p.move(to: CGPoint(x: c.x - 6, y: c.y + 1)); p.addQuadCurve(to: CGPoint(x: c.x + 6, y: c.y + 1), control: CGPoint(x: c.x, y: c.y + 4))
+    }, outline, 1.6)
+    ctx.stroke({ p in
+        p.addArc(center: CGPoint(x: c.x - 2, y: c.y - 1), radius: 6, startAngle: .pi * 1.15, endAngle: .pi * 1.45, clockwise: false)
+    }, rgb(0xFFD0A0, 0.8), 1.6)
+    ctx.fillEllipse(CGPoint(x: c.x + 5, y: c.y - 3), 1, 1, outline)
+}
+
+/// A golden bowl bell (chuông gia trì) on a small red cushion in front of the character.
+func drawBellBowl(_ ctx: CGContext) {
+    let c = CGPoint(x: 27, y: -22)
+    ctx.fill({ $0.addEllipse(in: CGRect(x: c.x - 11, y: c.y + 3, width: 22, height: 7)) }, rgb(0xC0392B), outlineWidth: 1.2)
+    ctx.fillGradient({ p in
+        p.move(to: CGPoint(x: c.x - 10, y: c.y - 7))
+        p.addLine(to: CGPoint(x: c.x + 10, y: c.y - 7))
+        p.addCurve(to: CGPoint(x: c.x - 10, y: c.y - 7), control1: CGPoint(x: c.x + 10, y: c.y + 10), control2: CGPoint(x: c.x - 10, y: c.y + 10))
+    }, [rgb(0xFFE08A), rgb(0xC8902A)], from: c.y - 7, to: c.y + 6, outlineWidth: 1.4)
+    ctx.fill({ $0.addEllipse(in: CGRect(x: c.x - 10, y: c.y - 9, width: 20, height: 4)) }, rgb(0x8A5A1A), outlineWidth: 1.2)
+    ctx.stroke({ p in p.move(to: CGPoint(x: c.x - 5, y: c.y - 3)); p.addLine(to: CGPoint(x: c.x - 4, y: c.y + 1)) }, rgb(0xFFFFFF, 0.7), 1.4)
+}
+
+/// A pink lotus seat under someone sitting cross-legged; drawn in the body's frame so it floats with them.
+func drawLotusSeat(_ ctx: CGContext) {
+    for (x, w, color) in [(-34.0, 18.0, rgb(0xF7A8C4)), (16.0, 18.0, rgb(0xF7A8C4)), (-26.0, 20.0, rgb(0xFFC4D8)),
+                          (6.0, 20.0, rgb(0xFFC4D8))] {
+        ctx.fill({ p in
+            let l = CGFloat(x), r = CGFloat(x + w), mid = (l + r) / 2
+            p.move(to: CGPoint(x: l, y: -14))
+            p.addQuadCurve(to: CGPoint(x: mid, y: -30), control: CGPoint(x: l - 1, y: -24))
+            p.addQuadCurve(to: CGPoint(x: r, y: -14), control: CGPoint(x: r + 1, y: -24))
+            p.closeSubpath()
+        }, color, outlineWidth: 1.2)
+    }
+    ctx.fill({ $0.addEllipse(in: CGRect(x: -36, y: -17, width: 72, height: 9)) }, rgb(0x7CC08A), outlineWidth: 1.2)
+}
+
+/// The mallet for the wooden fish (or the striker for the bell), held in `hand`; `angle` 0 points straight forward.
+func drawMallet(_ ctx: CGContext, at hand: CGPoint, angle: CGFloat) {
+    let head = CGPoint(x: hand.x + cos(angle) * 9, y: hand.y + sin(angle) * 9)
+    ctx.stroke({ $0.move(to: hand); $0.addLine(to: head) }, outline, 3.4)
+    ctx.stroke({ $0.move(to: hand); $0.addLine(to: head) }, rgb(0xC89058), 1.8)
+    ctx.fill({ $0.addEllipse(in: CGRect(x: head.x - 3, y: head.y - 3, width: 6, height: 6)) }, rgb(0x8A3A1C), outlineWidth: 1.2)
+}
+
 /// Laptop on the lap, screen facing the character (we see its back).
 func drawLaptop(_ ctx: CGContext, _ look: Look) {
     ctx.fill({ $0.addRoundedRect(in: CGRect(x: -15, y: -24, width: 34, height: 5), cornerWidth: 2, cornerHeight: 2) },
@@ -365,6 +459,15 @@ func dressPath(_ p: CGMutablePath) {
     p.addQuadCurve(to: CGPoint(x: 17, y: -17), control: CGPoint(x: 13, y: -30))
     p.addQuadCurve(to: CGPoint(x: -17, y: -17), control: CGPoint(x: 0, y: -13))
     p.addQuadCurve(to: CGPoint(x: -9, y: -48), control: CGPoint(x: -13, y: -30))
+}
+
+/// A robe falling past the knees.
+func robePath(_ p: CGMutablePath) {
+    p.move(to: CGPoint(x: -9, y: -48))
+    p.addLine(to: CGPoint(x: 9, y: -48))
+    p.addQuadCurve(to: CGPoint(x: 18, y: -10), control: CGPoint(x: 14, y: -30))
+    p.addQuadCurve(to: CGPoint(x: -18, y: -10), control: CGPoint(x: 0, y: -7))
+    p.addQuadCurve(to: CGPoint(x: -9, y: -48), control: CGPoint(x: -14, y: -30))
 }
 
 /// A straight-cut jacket or shirt that stops at the hips, over the legs.
@@ -483,6 +586,42 @@ func drawOutfit(_ ctx: CGContext, _ look: Look) {
             for y: CGFloat in [-42, -35] { ctx.fillEllipse(CGPoint(x: -7.5, y: y), 1.2, 1.2, look.accent) }
         }
         drawCollar(ctx, look.shirt)
+    case .robe:
+        // A long brown robe (áo tràng) with a crossed collar over a lighter undershirt.
+        ctx.fill(robePath, look.top)
+        inside(ctx, robePath) {
+            ctx.fill({ p in
+                p.move(to: CGPoint(x: -8, y: -49)); p.addLine(to: CGPoint(x: 10, y: -49)); p.addLine(to: CGPoint(x: 1, y: -38)); p.closeSubpath()
+            }, look.shirt, outlineWidth: 0)
+            ctx.stroke({ p in
+                p.move(to: CGPoint(x: -9, y: -48)); p.addLine(to: CGPoint(x: 8, y: -32))
+                p.move(to: CGPoint(x: 10, y: -48)); p.addLine(to: CGPoint(x: 3, y: -41))
+            }, look.topDark, 2.2)
+            ctx.stroke({ p in
+                p.move(to: CGPoint(x: 8, y: -32)); p.addQuadCurve(to: CGPoint(x: 13, y: -10), control: CGPoint(x: 12, y: -22))
+                p.move(to: CGPoint(x: -6, y: -26)); p.addQuadCurve(to: CGPoint(x: -9, y: -10), control: CGPoint(x: -8, y: -18))
+            }, look.topDark, 1)
+        }
+    case .kasaya:
+        // An undershirt robe with the saffron kasaya draped from the back shoulder across the chest, sewn in patches.
+        ctx.fill(robePath, look.shirt)
+        func kasaya(_ p: CGMutablePath) {
+            p.move(to: CGPoint(x: -12, y: -49)); p.addLine(to: CGPoint(x: -2, y: -49))
+            p.addLine(to: CGPoint(x: 20, y: -24)); p.addLine(to: CGPoint(x: 20, y: -6)); p.addLine(to: CGPoint(x: -20, y: -6))
+            p.addLine(to: CGPoint(x: -20, y: -49)); p.closeSubpath()
+        }
+        inside(ctx, robePath) {
+            ctx.fill(kasaya, look.top, outlineWidth: 1.2)
+            inside(ctx, kasaya) {
+                ctx.stroke({ p in
+                    for x: CGFloat in [-10, -2, 6] { p.move(to: CGPoint(x: x, y: -46)); p.addLine(to: CGPoint(x: x, y: -6)) }
+                    for y: CGFloat in [-36, -22] { p.move(to: CGPoint(x: -20, y: y)); p.addLine(to: CGPoint(x: 20, y: y)) }
+                }, look.topDark.copy(alpha: 0.45)!, 0.8)
+            }
+            ctx.stroke({ p in p.move(to: CGPoint(x: -2, y: -49)); p.addLine(to: CGPoint(x: 20, y: -24)) }, look.topDark, 2.4)
+        }
+        // The ring that fastens the kasaya at the shoulder.
+        ctx.stroke({ $0.addEllipse(in: CGRect(x: -9, y: -46, width: 5, height: 5)) }, rgb(0xE0B040), 1.6)
     case .turtleneck:
         ctx.fill(dressPath, look.top)
         inside(ctx, dressPath) {
@@ -495,6 +634,14 @@ func drawOutfit(_ ctx: CGContext, _ look: Look) {
                  look.topDark, outlineWidth: 1.2)
         for x: CGFloat in [-5, -1, 3, 7] {
             ctx.stroke({ p in p.move(to: CGPoint(x: x, y: -51)); p.addLine(to: CGPoint(x: x, y: -45)) }, look.top, 0.8)
+        }
+    }
+    if look.extras.contains(.beads) {
+        // Prayer beads around the neck.
+        for i in 0...10 {
+            let t = CGFloat(i) / 10 * .pi
+            ctx.fill({ $0.addEllipse(in: CGRect(x: 1 - cos(t) * 9 - 1.9, y: -48 + sin(t) * 13 - 1.9, width: 3.8, height: 3.8)) },
+                     i == 5 ? look.accent : rgb(0x5A3420), outlineWidth: 0.8)
         }
     }
     if look.extras.contains(.lanyard) {
