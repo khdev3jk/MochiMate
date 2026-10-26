@@ -30,7 +30,7 @@ final class SkillOverlay {
     /// Runs `skill` on the screen under `feet` (the pet's feet in global coordinates). The effects are drawn for the
     /// whole screen and shrunk toward the pet's feet, so a skill stays around the character.
     func play(_ skill: Skill, feet: CGPoint, facing: CGFloat) {
-        play(feet: feet, facing: facing, scale: 0.45, stretch: skill.stretch, skill.cast)
+        play(feet: feet, facing: facing, scale: 0.45, skill.cast)
     }
 
     /// Runs a reminder's effect: full screen when `intense`, otherwise a quick pulse around the pet.

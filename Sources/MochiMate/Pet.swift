@@ -311,7 +311,7 @@ final class Pet {
              guard let self else { return }
              SkillOverlay.shared.play(skill, feet: self.position, facing: self.facing)
          },
-         .play(skill.anim, Skill.duration, effect: .sparkle),
+         .play(skill.anim, skill.duration, effect: .sparkle),
          .play(.happy, 1.2, effect: .heart)]
     }
 

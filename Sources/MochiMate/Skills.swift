@@ -16,10 +16,8 @@ enum Skill: String, CaseIterable {
     case woodenFish, incense            // Tâm
     case templeBell, meditation         // Thầy Minh
 
-    /// How long the character holds the pose while the effect plays.
-    static let duration: TimeInterval = 10
-    /// The effects below are timed for 3 s and stretched to `duration`; the monks' are timed for it already, to match their animations.
-    var stretch: Double { characterID == "tam" || characterID == "minh" ? 1 : Skill.duration / 3 }
+    /// How long the character holds the pose while the effect plays: the monks' effects are timed for 10 s, everyone else's for 3 s.
+    var duration: TimeInterval { characterID == "tam" || characterID == "minh" ? 10 : 3 }
 
     static func all(for characterID: String) -> [Skill] { allCases.filter { $0.characterID == characterID } }
 
